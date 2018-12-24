@@ -9,7 +9,8 @@ import {
   Button,
   WithStyles,
   Theme,
-  Hidden
+  Hidden,
+  MuiThemeProvider
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
@@ -21,10 +22,12 @@ export interface IHeaderProps extends WithStyles<typeof styles> {
     url: string;
     label: string;
   }[];
+  theme: Theme;
 }
 
 interface IHeaderState {
   isDrawerOpen: boolean;
+  isMobileRes: boolean;
 }
 
 const styles = (theme: Theme) =>
@@ -39,36 +42,66 @@ const styles = (theme: Theme) =>
       textAlign: "left"
     },
     menuButton: {
-      marginRight: 20,
-      "@media (min-width: 600px)": {
-        display: "none"
-      }
-    },
-    sideBar: {
-      "@media (min-width: 600px)": {
-        display: "none"
-      }
+      marginRight: 20
     }
   });
 
 class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
   state: IHeaderState = {
-    isDrawerOpen: false
+    isDrawerOpen: false,
+    isMobileRes: false
   };
 
-  handleToggle = () => {
+  constructor(props: IHeaderProps) {
+    super(props);
+
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+  }
+
+  handleToggle() {
     this.setState({
       isDrawerOpen: !this.state.isDrawerOpen
     });
-  };
+  }
+
+  handleResize() {
+    if (window.innerWidth < this.props.theme.breakpoints.values.sm) {
+      // mobileRes == true
+      if (this.state.isMobileRes == false) {
+        // only change when needed
+        this.setState({
+          isMobileRes: true
+        });
+      }
+    } else {
+      // mobileRes == false (desktopRes)
+      if (this.state.isMobileRes == true) {
+        // only change when needed
+        this.setState({
+          isMobileRes: false
+        });
+      }
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleResize);
+    // first window risement
+    this.handleResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
 
   // TODO: isDrawerUpdate reset after window changes
   render() {
     const { classes, title } = this.props;
 
     return (
-      <>
-        {/*<Hidden xsUp>*/}
+      <header>
+        {this.state.isMobileRes ? ( // mobile only
           <SideBar
             linkList={[
               { label: "Hallo iedereen", url: "http://mijnwebsite.be" }
@@ -77,10 +110,10 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
             onClose={this.handleToggle}
             className={classes.sideBar}
           />
-        {/*</Hidden>*/}
+        ) : null}
         <AppBar position="static" className={classes.appBar}>
           <Toolbar>
-            {/*<Hidden xsUp>*/}
+            {this.state.isMobileRes ? ( // mobile only
               <IconButton
                 className={classes.menuButton}
                 color="inherit"
@@ -89,22 +122,24 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
               >
                 <Menu />
               </IconButton>
-            {/*</Hidden>*/}
+            ) : null}
+
             <Typography variant="h6" color="inherit" className={classes.grow}>
               {title}
             </Typography>
-            <Hidden xsDown>
+
+            {!this.state.isMobileRes ? ( // desktop only
               <LinkBar
                 linkList={[
                   { label: "Hallo iedereen", url: "http://mijnwebsite.be" }
                 ]}
               />
-            </Hidden>
+            ) : null}
           </Toolbar>
         </AppBar>
-      </>
+      </header>
     );
   }
 }
 
-export default withStyles(styles)(HeaderComponent);
+export default withStyles(styles, { withTheme: true })(HeaderComponent);
