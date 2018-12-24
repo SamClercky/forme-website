@@ -6,11 +6,8 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Button,
   WithStyles,
   Theme,
-  Hidden,
-  MuiThemeProvider
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
@@ -103,12 +100,9 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
       <header>
         {this.state.isMobileRes ? ( // mobile only
           <SideBar
-            linkList={[
-              { label: "Hallo iedereen", url: "http://mijnwebsite.be" }
-            ]}
+            linkList={this.props.linkList}
             isOpen={this.state.isDrawerOpen}
             onClose={this.handleToggle}
-            className={classes.sideBar}
           />
         ) : null}
         <AppBar position="static" className={classes.appBar}>
@@ -130,9 +124,7 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
 
             {!this.state.isMobileRes ? ( // desktop only
               <LinkBar
-                linkList={[
-                  { label: "Hallo iedereen", url: "http://mijnwebsite.be" }
-                ]}
+                linkList={this.props.linkList}
               />
             ) : null}
           </Toolbar>
