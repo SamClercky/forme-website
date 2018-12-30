@@ -14,6 +14,7 @@ import ShowcaseRow from "../showcase/ShowcaseRow";
 import Headline from "../common/Headline";
 import ContactEntryContainer from "../contact/ContactEntryContainer";
 import Header from "../common/Header";
+import Footer from "../common/Footer";
 
 interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
@@ -91,6 +92,7 @@ class Home extends React.Component<IHomeProps, {}> {
           </Typography>
           <ContactEntryContainer />
         </Paper>
+        <Footer />
       </>
     );
   }

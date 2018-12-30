@@ -2,65 +2,37 @@ import React from "react";
 import {
   withStyles,
   createStyles,
-  AppBar,
-  Toolbar,
-  IconButton,
+  WithStyles,
+  Theme,
   Typography,
-  Button
+  Paper
 } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
+import logo from "../../logo.svg";
 
-export interface IHeaderProps {
-  classes: {
-    root: string;
-    grow: string;
-    menuButton: string;
-  };
-  title: string;
-  linkList: {
-    url: string;
-    label: string;
-  }[];
+export interface IFooterComponentProps extends WithStyles<typeof styles> {
+  className?: string;
 }
 
-const styles = createStyles({
-  root: {
-    flexGrow: 1
-  },
-  grow: {
-    flexGrow: 1,
-    textAlign: "left"
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+const styles = (theme: Theme) => createStyles({
+  paper: {
+    backgroundColor: theme.palette.primary.dark
   }
 });
 
-class HeaderComponent extends React.Component<IHeaderProps, {}> {
-  render() {
-    const { classes, title } = this.props;
-
+class FooterComponentComponent extends React.Component<
+  IFooterComponentProps,
+  {}
+> {
+  public render() {
+    const {classes} = this.props;
     return (
-      <header className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <Menu />
-            </IconButton>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              {title}
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </header>
+      <footer>
+        <Paper className={classes.paper}>
+          <img src={logo} />
+        </Paper>
+      </footer>
     );
   }
 }
 
-export default withStyles(styles)(HeaderComponent);
+export default withStyles(styles)(FooterComponentComponent);
