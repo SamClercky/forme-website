@@ -17,11 +17,11 @@ class LinkBarComponent extends React.Component<ILinkBarProps, {}> {
         const links = this.props.linkList || []
 
         return (
-            <>
+            <nav>
                 {links.map(e =>{
                     return (<Button color="inherit" key={e.url}>{e.label}</Button>)
                 })}
-            </>
+            </nav>
         )
     }
 }

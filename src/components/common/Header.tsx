@@ -20,6 +20,7 @@ export interface IHeaderProps extends WithStyles<typeof styles> {
     label: string;
   }[];
   theme: Theme;
+  className?: string;
 }
 
 interface IHeaderState {
@@ -97,7 +98,7 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
     const { classes, title } = this.props;
 
     return (
-      <header>
+      <header className={this.props.className}>
         {this.state.isMobileRes ? ( // mobile only
           <SideBar
             linkList={this.props.linkList}
