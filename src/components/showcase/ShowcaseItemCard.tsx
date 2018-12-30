@@ -10,6 +10,7 @@ import {
   CardContent,
   Typography
 } from "@material-ui/core";
+import transitions from "@material-ui/core/styles/transitions";
 
 export enum CardSizes {
   big = "big",
@@ -24,7 +25,8 @@ export interface IShowcaseItemCardProps extends WithStyles<typeof styles> {
 const styles = (theme: Theme) =>
   createStyles({
     card: {
-      margin: "5px"
+      margin: "5px",
+      transition: "opacity 2s"
     },
     cardSmall: {
       maxWidth: 345,

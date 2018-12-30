@@ -7,7 +7,7 @@ import {
   IconButton,
   Typography,
   WithStyles,
-  Theme,
+  Theme
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
@@ -33,7 +33,11 @@ const styles = (theme: Theme) =>
     appBar: {
       flexGrow: 1,
       marginLeft: 0,
-      width: "100%"
+      width: "100vw",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      zIndex: 200
     },
     grow: {
       flexGrow: 1,
@@ -41,6 +45,13 @@ const styles = (theme: Theme) =>
     },
     menuButton: {
       marginRight: 20
+    },
+    spacer: {
+      width: "100%",
+      height: "3rem",
+      top: 0,
+      left: 0,
+      right: 0
     }
   });
 
@@ -98,39 +109,40 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
     const { classes, title } = this.props;
 
     return (
-      <header className={this.props.className}>
-        {this.state.isMobileRes ? ( // mobile only
-          <SideBar
-            linkList={this.props.linkList}
-            isOpen={this.state.isDrawerOpen}
-            onClose={this.handleToggle}
-          />
-        ) : null}
-        <AppBar position="static" className={classes.appBar}>
-          <Toolbar>
-            {this.state.isMobileRes ? ( // mobile only
-              <IconButton
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="Menu"
-                onClick={this.handleToggle}
-              >
-                <Menu />
-              </IconButton>
-            ) : null}
+      <>
+        <header className={this.props.className}>
+          {this.state.isMobileRes ? ( // mobile only
+            <SideBar
+              linkList={this.props.linkList}
+              isOpen={this.state.isDrawerOpen}
+              onClose={this.handleToggle}
+            />
+          ) : null}
+          <AppBar position="static" className={classes.appBar}>
+            <Toolbar>
+              {this.state.isMobileRes ? ( // mobile only
+                <IconButton
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="Menu"
+                  onClick={this.handleToggle}
+                >
+                  <Menu />
+                </IconButton>
+              ) : null}
 
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              {title}
-            </Typography>
+              <Typography variant="h6" color="inherit" className={classes.grow}>
+                {title}
+              </Typography>
 
-            {!this.state.isMobileRes ? ( // desktop only
-              <LinkBar
-                linkList={this.props.linkList}
-              />
-            ) : null}
-          </Toolbar>
-        </AppBar>
-      </header>
+              {!this.state.isMobileRes ? ( // desktop only
+                <LinkBar linkList={this.props.linkList} />
+              ) : null}
+            </Toolbar>
+          </AppBar>
+        </header>
+        <div className={classes.spacer} />
+      </>
     );
   }
 }

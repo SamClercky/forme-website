@@ -13,6 +13,8 @@ import {
   WithStyles
 } from "@material-ui/core";
 import { Mail } from "@material-ui/icons";
+import { Link } from "react-router-dom";
+import NoStyleLink from "./NoStyleLink";
 
 export interface ISideBarProps extends WithStyles<typeof styles> {
   linkList?: {
@@ -56,12 +58,14 @@ class SideBarComponent extends React.Component<ISideBarProps> {
         <List>
           {list.map(e => {
             return (
-              <ListItem button key={e.url}>
-                <ListItemIcon>
-                  <Mail />
-                </ListItemIcon>
-                <ListItemText primary={e.label} />
-              </ListItem>
+              <NoStyleLink to={e.url} key={e.url}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <Mail />
+                  </ListItemIcon>
+                  <ListItemText primary={e.label} />
+                </ListItem>
+              </NoStyleLink>
             );
           })}
         </List>
