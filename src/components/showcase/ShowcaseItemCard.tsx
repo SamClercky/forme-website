@@ -20,17 +20,19 @@ export enum CardSizes {
 export interface IShowcaseItemCardProps extends WithStyles<typeof styles> {
   className?: string;
   cardSize: CardSizes;
+  cardLabel: string;
+  cardUrl: string;
+  cardDescription: string;
 }
 
 const styles = (theme: Theme) =>
   createStyles({
     card: {
-      margin: "5px",
       transition: "opacity 2s"
     },
     cardSmall: {
       maxWidth: 345,
-      minWidth: 300,
+      minWidth: 300
     },
     cardBig: {
       maxWidth: "90vw",
@@ -57,9 +59,9 @@ const styles = (theme: Theme) =>
       }
     },
     media: {
-      objectFit: "cover",
+      objectFit: "contain",
       height: "25vh"
-    },
+    }
   });
 
 class ShowcaseItemCardComponent extends React.Component<
@@ -81,16 +83,15 @@ class ShowcaseItemCardComponent extends React.Component<
           <CardMedia
             component="img"
             className={classes.media}
-            image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-            title="Img title"
+            image={this.props.cardUrl}
+            title={this.props.cardLabel}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              Lizard
+              {this.props.cardLabel}
             </Typography>
             <Typography component="p">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {this.props.cardDescription}
             </Typography>
           </CardContent>
         </CardActionArea>

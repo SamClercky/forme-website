@@ -18,6 +18,9 @@ import ShowcaseItemCard, { CardSizes } from "./ShowcaseItemCard";
 export interface IShowcaseItemProps extends WithStyles<typeof styles> {
   className?: string;
   startOpen?: boolean;
+  itemLabel: string;
+  itemUrl: string;
+  itemDescription: string;
 }
 
 interface IShowcaseItemState {
@@ -83,14 +86,21 @@ class ShowcaseItemComponent extends React.Component<
     return (
       <>
         <div onClick={this.handleDialogOpen}>
-          <ShowcaseItemCard cardSize={CardSizes.small} />
+          <ShowcaseItemCard
+            cardSize={CardSizes.small}
+            cardLabel={this.props.itemLabel}
+            cardUrl={this.props.itemUrl}
+            cardDescription={this.props.itemDescription}
+          />
         </div>
-        <Modal
-          open={this.state.isDialogOpen}
-          onClose={this.handleDialogClose}>
-
+        <Modal open={this.state.isDialogOpen} onClose={this.handleDialogClose}>
           <div className={classes.modal}>
-            <ShowcaseItemCard cardSize={CardSizes.big} />
+            <ShowcaseItemCard
+              cardSize={CardSizes.big}
+              cardLabel={this.props.itemLabel}
+              cardUrl={this.props.itemUrl}
+              cardDescription={this.props.itemDescription}
+            />
           </div>
         </Modal>
       </>
@@ -99,7 +109,7 @@ class ShowcaseItemComponent extends React.Component<
 }
 
 function Transition(props: any) {
-  return <Slide direction="up" {...props} />
+  return <Slide direction="up" {...props} />;
 }
 
 export default withStyles(styles)(ShowcaseItemComponent);

@@ -8,6 +8,7 @@ import {
   GridListTile
 } from "@material-ui/core";
 import ShowcaseItem from "./ShowcaseItem";
+import { resources } from "../../resources";
 
 export interface IShowcaseRowProps extends WithStyles<typeof styles> {
   className?: string;
@@ -19,13 +20,14 @@ const styles = (theme: Theme) =>
       width: "100%",
       height: "auto",
       overflowX: "scroll",
-      display: "flex",
-      flexDirection: "row",
-      alignContent: "center",
-      justifyContent: "flex-start",
-      flexWrap: "nowrap",
       marginLeft: "10px",
-      marginRight: "10px"
+      marginRight: "10px",
+      display: "grid",
+      gridAutoColumns: "max-content",
+      gridAutoRows: "max-content",
+      gridAutoFlow: "column",
+      gridGap: "10px",
+      padding: "10px"
     }
   });
 
@@ -35,17 +37,17 @@ class ShowcaseRowComponent extends React.Component<IShowcaseRowProps, {}> {
 
     return (
       <div className={classes.root}>
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
-        <ShowcaseItem />
+        {
+          resources.collection.map(e => {
+            return (
+              <ShowcaseItem 
+                itemLabel={e.label}
+                itemUrl={e.url}
+                itemDescription={e.description}
+              />
+            )
+          })
+        }
       </div>
     );
   }
