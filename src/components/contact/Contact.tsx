@@ -1,10 +1,10 @@
 import React from "react";
 import { withStyles, createStyles, WithStyles, Theme, Paper, Typography } from "@material-ui/core";
 import Header, { ILinkList } from "../common/Header";
-import { resources } from "../../resources";
 import Footer from "../common/Footer";
 import ContactEntryContainer from "./ContactEntryContainer";
 import Headline from "../common/Headline";
+import { IWebpage } from "../../redux/initialState";
 
 export interface IContactProps extends WithStyles<typeof styles> {
   className?: string;
@@ -12,6 +12,7 @@ export interface IContactProps extends WithStyles<typeof styles> {
     url: string;
     label: string;
   }[];
+  paginas: IWebpage[]
 }
 
 const styles = (theme: Theme) =>
@@ -34,7 +35,7 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
       linkList: props.linkList.map(e => {
         // transform a simple linklist to a ILinkList
         return {
-          isActive: e.label == resources.paginas[2].label,
+          isActive: e.label == this.props.paginas[2].label,
           ...e
         } as ILinkList;
       })

@@ -9,6 +9,8 @@ import {
   MuiThemeProvider
 } from "@material-ui/core";
 import { grey, red } from "@material-ui/core/colors";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 // create theme
 const theme = createMuiTheme({
@@ -26,12 +28,12 @@ const theme = createMuiTheme({
 });
 
 ReactDOM.render(
-  <React.Fragment>
+  <Provider store={store}>
     <CssBaseline />
     <MuiThemeProvider theme={theme}>
       <App />
     </MuiThemeProvider>
-  </React.Fragment>,
+  </Provider>,
   document.getElementById("root")
 );
 

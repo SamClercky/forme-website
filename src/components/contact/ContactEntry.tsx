@@ -9,8 +9,8 @@ import {
   Avatar,
   Typography
 } from "@material-ui/core";
-import { IContactInfo } from "../../resources";
 import LazyLoad from "react-lazyload";
+import { IContactInfo } from "../../redux/initialState";
 
 export interface IContactEntryProps extends WithStyles<typeof styles> {
   className?: string;

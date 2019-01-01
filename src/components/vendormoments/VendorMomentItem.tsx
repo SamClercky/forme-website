@@ -6,7 +6,7 @@ import {
   Theme,
   Typography
 } from "@material-ui/core";
-import { IVendorMoment } from "../../resources";
+import { IVendorMoment } from "../../redux/initialState";
 
 export interface IVendorMomentItemProps extends WithStyles<typeof styles> {
   className?: string;

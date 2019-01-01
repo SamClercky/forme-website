@@ -17,7 +17,7 @@ import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";
 import AboutContent from "../about/AboutContent";
-import { resources } from "../../resources";
+import { IWebpage } from "../../redux/initialState";
 
 interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
@@ -25,6 +25,7 @@ interface IHomeProps extends WithStyles<typeof styles> {
     url: string;
     label: string;
   }[];
+  paginas: IWebpage[]
 }
 
 const styles = (theme: Theme) =>
@@ -47,7 +48,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     this.state = {
       linkList: props.linkList.map(e => { // transform a simple linklist to a ILinkList
         return {
-          isActive: e.label == resources.paginas[0].label,
+          isActive: e.label == this.props.paginas[0].label,
           ...e
         } as ILinkList
       })

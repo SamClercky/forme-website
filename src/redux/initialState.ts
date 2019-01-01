@@ -36,6 +36,8 @@ export interface ICollectionItem {
   label: string;
   url: string;
   description: string;
+  stared: boolean;
+  stars: number;
 }
 
 /**
@@ -55,47 +57,57 @@ export interface IVendorMoment {
 /**
  * Describes the general data format
  */
-export interface IResources {
+export interface IAppState {
   collection: ICollectionItem[];
   paginas: IWebpage[];
   contact: IContactInfo[];
   vendorMoments: IVendorMoment[];
 }
 
-export const resources: IResources = {
+export const initialState: IAppState = {
   collection: [
     {
       label: "T-shirt rood",
       url:
         "https://github.com/SamClercky/forme-src/blob/master/tshirtRood.png?raw=true",
       description:
-        "Dit is een rood t-shirt gemaakt met verfijnde stof en een exclusieve witte mier op de borst."
+        "Dit is een rood t-shirt gemaakt met verfijnde stof en een exclusieve witte mier op de borst.",
+      stars: 0,
+      stared: false
     },
     {
       label: "T-shirt wit mier zwart (groot)",
       url:
         "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_donker.png?raw=true",
       description:
-        "Wit t-shirt met een exclusieve zwarte mier en onze bedrijfsnaam in het Arabisch."
+        "Wit t-shirt met een exclusieve zwarte mier en onze bedrijfsnaam in het Arabisch.",
+      stars: 0,
+      stared: false
     },
     {
       label: "T-shirt wit mier rood (groot)",
       url:
         "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish.png?raw=true",
       description:
-        "Rood t-shirt met een exclusieve rode mier en onze bedrijfsnaam in het Arabisch."
+        "Rood t-shirt met een exclusieve rode mier en onze bedrijfsnaam in het Arabisch.",
+      stars: 0,
+      stared: false
     },
     {
       label: "T-shirt wit mier rood (klein)",
       url:
         "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_klein.png?raw=true",
-      description: "Sober wit t-shirt voor sportevenmenten."
+      description: "Sober wit t-shirt voor sportevenmenten.",
+      stars: 0,
+      stared: false
     },
     {
       label: "T-shirt wit lopende mieren",
       url:
         "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_v6.png?raw=true",
-      description: "Deluxe wit t-shirt met lopende mieren op borst en rug."
+      description: "Deluxe wit t-shirt met lopende mieren op borst en rug.",
+      stars: 0,
+      stared: false
     }
   ],
   paginas: [
@@ -137,7 +149,13 @@ export const resources: IResources = {
     },
     {
       label: "Camping Flamingo",
-      date: [new Date(2019, 1, 10), new Date(2019, 4, 12), new Date(2019, 4, 12), new Date(2019, 4, 12), new Date(2019, 4, 12)] // jaar, maand-1, dag
+      date: [
+        new Date(2019, 1, 10),
+        new Date(2019, 4, 12),
+        new Date(2019, 4, 12),
+        new Date(2019, 4, 12),
+        new Date(2019, 4, 12)
+      ] // jaar, maand-1, dag
     }
   ]
 };

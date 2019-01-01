@@ -9,7 +9,7 @@ import {
 import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
 import AboutContent from "./AboutContent";
-import { resources } from "../../resources";
+import { IWebpage } from "../../redux/initialState";
 
 export interface IAboutProps extends WithStyles<typeof styles> {
   className?: string;
@@ -17,6 +17,7 @@ export interface IAboutProps extends WithStyles<typeof styles> {
     url: string;
     label: string;
   }[];
+  paginas: IWebpage[]
 }
 
 const styles = (theme: Theme) =>
@@ -39,7 +40,7 @@ class AboutComponent extends React.Component<IAboutProps, IAboutState> {
       linkList: props.linkList.map(e => {
         // transform a simple linklist to a ILinkList
         return {
-          isActive: e.label == resources.paginas[1].label,
+          isActive: e.label == this.props.paginas[1].label,
           ...e
         } as ILinkList;
       })

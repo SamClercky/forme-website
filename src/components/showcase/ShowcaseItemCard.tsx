@@ -8,11 +8,14 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
-  Typography
+  Typography,
+  CardActions,
+  IconButton
 } from "@material-ui/core";
 import transitions from "@material-ui/core/styles/transitions";
 import CustomShowcaseCard from "./CustomShowcaseCard";
 import LazyLoad from "react-lazyload";
+import { Favorite, Share } from "@material-ui/icons";
 
 export enum CardSizes {
   big = "big",
@@ -96,6 +99,14 @@ class ShowcaseItemCardComponent extends React.Component<
             </Typography>
             <Typography component="p">{this.props.cardDescription}</Typography>
           </CardContent>
+          <CardActions disableActionSpacing>
+            <IconButton>
+              <Favorite />
+            </IconButton>
+            <IconButton>
+              <Share />
+            </IconButton>
+          </CardActions>
         </CardActionArea>
       </CustomShowcaseCard>
     );

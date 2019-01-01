@@ -8,10 +8,12 @@ import {
   GridListTile
 } from "@material-ui/core";
 import ShowcaseItem from "./ShowcaseItem";
-import { resources } from "../../resources";
+import { IAppState, ICollectionItem } from "../../redux/initialState";
+import { connect } from "react-redux";
 
 export interface IShowcaseRowProps extends WithStyles<typeof styles> {
   className?: string;
+  collection?: ICollectionItem[]
 }
 
 const styles = (theme: Theme) =>
@@ -38,7 +40,7 @@ class ShowcaseRowComponent extends React.Component<IShowcaseRowProps, {}> {
     return (
       <div className={classes.root}>
         {
-          resources.collection.map(e => {
+          this.props.collection != undefined ? this.props.collection.map(e => {
             return (
               <ShowcaseItem 
                 itemLabel={e.label}
@@ -47,11 +49,17 @@ class ShowcaseRowComponent extends React.Component<IShowcaseRowProps, {}> {
                 key={e.url}
               />
             )
-          })
+          }) : null
         }
       </div>
     );
   }
 }
 
-export default withStyles(styles)(ShowcaseRowComponent);
+const mapStateToProps = (state: IAppState, props: IShowcaseRowProps) => {
+  return {
+    collection: state.collection
+  }
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(ShowcaseRowComponent));

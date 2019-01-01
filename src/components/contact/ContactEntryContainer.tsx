@@ -1,10 +1,12 @@
 import React from "react"
 import { withStyles, createStyles, WithStyles, Theme } from '@material-ui/core'
 import ContactEntry from "./ContactEntry";
-import { resources } from "../../resources";
+import { IAppState, IContactInfo } from "../../redux/initialState";
+import { connect } from "react-redux";
 
 export interface IContactEntryContainerProps extends WithStyles<typeof styles> {
-    className?: string
+    className?: string,
+    contact?: IContactInfo[]
 }
 
 const styles = (theme: Theme) => createStyles({
@@ -20,15 +22,21 @@ class ContactEntryContainerComponent extends React.Component<IContactEntryContai
         return (
             <div className={this.props.classes.root + " " + (this.props.className || "")}>
                 {
-                    resources.contact.map(c => {
+                    this.props.contact != undefined? this.props.contact.map(c => {
                         return (
                             <ContactEntry contact={c} key={c.name} />
                         )
-                    })
+                    }): null
                 }
             </div>
         )
     }
 }
 
-export default withStyles(styles)(ContactEntryContainerComponent)
+const mapStateToProps = (state: IAppState, props: IContactEntryContainerProps) => {
+    return {
+        contact: state.contact
+    }
+}
+
+export default withStyles(styles)(connect(mapStateToProps)(ContactEntryContainerComponent))
