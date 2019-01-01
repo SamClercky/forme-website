@@ -10,6 +10,7 @@ import {
   Typography
 } from "@material-ui/core";
 import { IContactInfo } from "../../resources";
+import LazyLoad from "react-lazyload";
 
 export interface IContactEntryProps extends WithStyles<typeof styles> {
   className?: string;
@@ -44,7 +45,8 @@ class ContactEntryComponent extends React.Component<IContactEntryProps, {}> {
     return name
       .split(" ")
       .map(s => s.substr(0, 1))
-      .reduce((prev, curr) => `${prev}${curr}`);
+      .reduce((prev, curr) => `${prev}${curr}`)
+      .toUpperCase();
   }
 
   private getImage(): any {
@@ -53,11 +55,13 @@ class ContactEntryComponent extends React.Component<IContactEntryProps, {}> {
     } else {
       const description = `Profielfoto van ${this.props.contact.name}`;
       return (
-        <img
-          src={this.props.contact.imageUrl}
-          alt={description}
-          title={description}
-        />
+        <LazyLoad height="60">
+          <img
+            src={this.props.contact.imageUrl}
+            alt={description}
+            title={description}
+          />
+        </LazyLoad>
       );
     }
   }
@@ -73,11 +77,16 @@ class ContactEntryComponent extends React.Component<IContactEntryProps, {}> {
       >
         <Grid container wrap="nowrap" spacing={16}>
           <Grid item>
-            <Avatar className={this.props.classes.avatar}>{this.getImage()}</Avatar>
+            <Avatar className={this.props.classes.avatar}>
+              {this.getImage()}
+            </Avatar>
           </Grid>
           <Grid item xs zeroMinWidth>
             <Typography variant="h6">{contact.function}</Typography>
-            <Typography><strong>{contact.name}: </strong>{contact.description}</Typography>
+            <Typography>
+              <strong>{contact.name}: </strong>
+              {contact.description}
+            </Typography>
             <ul>
               {contact.communication.map(comm => {
                 return (

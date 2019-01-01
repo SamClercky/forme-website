@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import transitions from "@material-ui/core/styles/transitions";
 import CustomShowcaseCard from "./CustomShowcaseCard";
+import LazyLoad from "react-lazyload";
 
 export enum CardSizes {
   big = "big",
@@ -81,19 +82,19 @@ class ShowcaseItemCardComponent extends React.Component<
         }`}
       >
         <CardActionArea>
-          <CardMedia
-            component="img"
-            className={classes.media}
-            image={this.props.cardUrl}
-            title={this.props.cardLabel}
-          />
+          <LazyLoad height="25vh">
+            <CardMedia
+              component="img"
+              className={classes.media}
+              image={this.props.cardUrl}
+              title={this.props.cardLabel}
+            />
+          </LazyLoad>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {this.props.cardLabel}
             </Typography>
-            <Typography component="p">
-              {this.props.cardDescription}
-            </Typography>
+            <Typography component="p">{this.props.cardDescription}</Typography>
           </CardContent>
         </CardActionArea>
       </CustomShowcaseCard>
