@@ -1,6 +1,7 @@
 import React from "react"
 import { withStyles, createStyles, WithStyles, Theme } from '@material-ui/core'
 import ContactEntry from "./ContactEntry";
+import { resources } from "../../resources";
 
 export interface IContactEntryContainerProps extends WithStyles<typeof styles> {
     className?: string
@@ -18,16 +19,13 @@ class ContactEntryContainerComponent extends React.Component<IContactEntryContai
     public render() {
         return (
             <div className={this.props.classes.root + " " + (this.props.className || "")}>
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
-                <ContactEntry />
+                {
+                    resources.contact.map(c => {
+                        return (
+                            <ContactEntry contact={c} key={c.name} />
+                        )
+                    })
+                }
             </div>
         )
     }

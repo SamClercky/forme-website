@@ -15,12 +15,10 @@ import {
 import { Mail } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import NoStyleLink from "./NoStyleLink";
+import { ILinkList } from "./Header";
 
 export interface ISideBarProps extends WithStyles<typeof styles> {
-  linkList?: {
-    url: string;
-    label: string;
-  }[];
+  linkList?: ILinkList[];
   theme: Theme;
   isOpen: boolean;
   onClose: () => void;
@@ -47,7 +45,7 @@ const styles = (theme: Theme) =>
 class SideBarComponent extends React.Component<ISideBarProps> {
   public render() {
     const { classes, theme } = this.props;
-    const list = this.props.linkList || [];
+    const list = this.props.linkList || ([] as ILinkList[]);
 
     console.log(theme.breakpoints.up("sm"));
 
@@ -59,7 +57,7 @@ class SideBarComponent extends React.Component<ISideBarProps> {
           {list.map(e => {
             return (
               <NoStyleLink to={e.url} key={e.url}>
-                <ListItem button>
+                <ListItem button selected={e.isActive}>
                   <ListItemIcon>
                     <Mail />
                   </ListItemIcon>

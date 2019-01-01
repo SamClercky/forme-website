@@ -13,15 +13,18 @@ import logo from "../../logo.svg";
 import ShowcaseRow from "../showcase/ShowcaseRow";
 import Headline from "../common/Headline";
 import ContactEntryContainer from "../contact/ContactEntryContainer";
-import Header from "../common/Header";
+import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
+import VendorMomentRow from "../vendormoments/VendorMomentRow";
+import AboutContent from "../about/AboutContent";
+import { resources } from "../../resources";
 
 interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
   linkList: {
     url: string;
     label: string;
-  }[]; 
+  }[];
 }
 
 const styles = (theme: Theme) =>
@@ -29,15 +32,28 @@ const styles = (theme: Theme) =>
     root: {
       padding: "10px",
       overflow: "hidden"
-    },
-    avatar: {
-      margin: 10,
-      width: 60,
-      height: 60
     }
   });
 
-class Home extends React.Component<IHomeProps, {}> {
+interface IHomeState {
+  linkList: ILinkList[]
+}
+
+class Home extends React.Component<IHomeProps, IHomeState> {
+
+  public constructor(props: IHomeProps) {
+    super(props)
+  
+    this.state = {
+      linkList: props.linkList.map(e => { // transform a simple linklist to a ILinkList
+        return {
+          isActive: e.label == resources.paginas[0].label,
+          ...e
+        } as ILinkList
+      })
+    }
+  }
+
   public render() {
     const { classes } = this.props;
 
@@ -45,7 +61,7 @@ class Home extends React.Component<IHomeProps, {}> {
       <>
         <Header
           title="Welkom"
-          linkList={this.props.linkList}
+          linkList={this.state.linkList}
         />
         <Paper className={this.props.className + " " + classes.root}>
           <Typography variant="h1">Welkom bij Forme</Typography>
@@ -58,39 +74,8 @@ class Home extends React.Component<IHomeProps, {}> {
           <Headline variant="h2" align="left">
             Onze verkoopmomenten
           </Headline>
-          <ul>
-            <li>blablabla - 01/01/1999</li>
-            <li>blablabla - 02/01/1999</li>
-            <li>blablabla - 03/01/1999</li>
-            <li>blablabla - 04/01/1999</li>
-            <li>blablabla - 05/01/1999</li>
-            <li>blablabla - 06/01/1999</li>
-          </ul>
-          <Headline variant="h2" align="left">
-            Over ons
-          </Headline>
-          <img
-            src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-            title="groepsfoto"
-            alt="groepsfoto"
-          />
-          <Typography variant="body1">
-            Uitleg over wat en waarom we dit bedrijf hebben gemaakt.
-            Blablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-            blablablablablablablablablablablablablablablablablablablablablablablablablablablablabla
-          </Typography>
-          <Typography variant="h3" align="left">
-            Wie is wie
-          </Typography>
-          <ContactEntryContainer />
+          <VendorMomentRow />
+          <AboutContent />
         </Paper>
         <Footer />
       </>

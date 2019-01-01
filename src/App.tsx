@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/common/Header";
 import Home from "./components/home/Home";
 import { Theme, createStyles, WithStyles, withStyles } from "@material-ui/core";
+import { resources } from "./resources";
+import About from "./components/about/About";
 
 interface IAppProps extends WithStyles<typeof styles> {}
 
@@ -35,14 +37,30 @@ const styles = (theme: Theme) =>
   });
 
 class App extends Component<IAppProps, {}> {
-  _home = () => <Home className={this.props.classes.page} linkList={[{ label: "Hallo iedereen", url: "" }]} />;
+  _home = () => (
+    <Home className={this.props.classes.page} linkList={resources.paginas} />
+  );
+  _about = () => (
+    <About className={this.props.classes.page} linkList={resources.paginas} />
+  );
 
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
         <Router>
-          <Route path="/" exact component={this._home} />
+          <>
+            <Route
+              path={resources.paginas[0].url}
+              exact
+              component={this._home}
+            />
+            <Route
+              path={resources.paginas[1].url}
+              exact
+              component={this._about}
+            />
+          </>
         </Router>
       </div>
     );

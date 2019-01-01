@@ -11,6 +11,7 @@ import {
   Typography
 } from "@material-ui/core";
 import transitions from "@material-ui/core/styles/transitions";
+import CustomShowcaseCard from "./CustomShowcaseCard";
 
 export enum CardSizes {
   big = "big",
@@ -72,7 +73,7 @@ class ShowcaseItemCardComponent extends React.Component<
     const { classes } = this.props;
 
     return (
-      <Card
+      <CustomShowcaseCard
         className={`${classes.card} ${
           this.props.cardSize == CardSizes.big
             ? classes.cardBig
@@ -95,7 +96,7 @@ class ShowcaseItemCardComponent extends React.Component<
             </Typography>
           </CardContent>
         </CardActionArea>
-      </Card>
+      </CustomShowcaseCard>
     );
   }
 }

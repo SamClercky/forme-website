@@ -13,12 +13,15 @@ import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
 import SideBar, { drawerWidth } from "./SideBar";
 
+export interface ILinkList {
+  url: string;
+  label: string;
+  isActive: boolean;
+}
+
 export interface IHeaderProps extends WithStyles<typeof styles> {
   title: string;
-  linkList?: {
-    url: string;
-    label: string;
-  }[];
+  linkList?: ILinkList[];
   theme: Theme;
   className?: string;
 }
