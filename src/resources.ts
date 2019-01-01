@@ -108,6 +108,11 @@ export const resources: IResources = {
       label: "Over ons",
       url: "/over-ons",
       iconName: undefined
+    },
+    {
+      label: "Contact",
+      url: "/contact",
+      iconName: undefined
     }
   ],
   contact: [

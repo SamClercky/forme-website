@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import { Theme, createStyles, WithStyles, withStyles } from "@material-ui/core";
 import { resources } from "./resources";
 import About from "./components/about/About";
+import Contact from "./components/contact/Contact";
 
 interface IAppProps extends WithStyles<typeof styles> {}
 
@@ -43,6 +44,9 @@ class App extends Component<IAppProps, {}> {
   _about = () => (
     <About className={this.props.classes.page} linkList={resources.paginas} />
   );
+  _contact = () => (
+    <Contact className={this.props.classes.page} linkList={resources.paginas} />
+  );
 
   render() {
     const { classes } = this.props;
@@ -59,6 +63,11 @@ class App extends Component<IAppProps, {}> {
               path={resources.paginas[1].url}
               exact
               component={this._about}
+            />
+            <Route
+              path={resources.paginas[2].url}
+              exact
+              component={this._contact}
             />
           </>
         </Router>
