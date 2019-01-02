@@ -66,9 +66,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           <img src={logo} />
           <Typography variant="h3">Wij staan voor standvastigheid.</Typography>
           <Headline variant="h2" align="left">
-            Onze Producten
+            Onze uitgelichte Producten
           </Headline>
-          <ShowcaseRow />
+          <ShowcaseRow onlyHighlighted={true} />
           <Headline variant="h2" align="left">
             Onze verkoopmomenten
           </Headline>

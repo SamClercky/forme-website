@@ -172,10 +172,11 @@ class ShowcaseItemCardComponent extends React.Component<
             <IconButton
               color={this.props.stared ? "primary" : "default"}
               onClick={this.onFavoriteClick}
+              component="div"
             >
               <Favorite />
             </IconButton>
-            <IconButton onClick={this.onShareToggle}>
+            <IconButton onClick={this.onShareToggle} component="div">
               <Share />
             </IconButton>
           </CardActions>

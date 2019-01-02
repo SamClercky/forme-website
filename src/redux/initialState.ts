@@ -38,6 +38,7 @@ export interface ICollectionItem {
   description: string;
   stared: boolean;
   stars: number;
+  highlighted: boolean;
 }
 
 /**
@@ -73,7 +74,8 @@ export const initialState: IAppState = {
       description:
         "Dit is een rood t-shirt gemaakt met verfijnde stof en een exclusieve witte mier op de borst.",
       stars: 0,
-      stared: false
+      stared: false,
+      highlighted: false,
     },
     {
       label: "T-shirt wit mier zwart (groot)",
@@ -82,7 +84,8 @@ export const initialState: IAppState = {
       description:
         "Wit t-shirt met een exclusieve zwarte mier en onze bedrijfsnaam in het Arabisch.",
       stars: 0,
-      stared: false
+      stared: false,
+      highlighted: false,
     },
     {
       label: "T-shirt wit mier rood (groot)",
@@ -91,7 +94,8 @@ export const initialState: IAppState = {
       description:
         "Rood t-shirt met een exclusieve rode mier en onze bedrijfsnaam in het Arabisch.",
       stars: 0,
-      stared: false
+      stared: false,
+      highlighted: false,
     },
     {
       label: "T-shirt wit mier rood (klein)",
@@ -99,7 +103,8 @@ export const initialState: IAppState = {
         "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_klein.png?raw=true",
       description: "Sober wit t-shirt voor sportevenmenten.",
       stars: 0,
-      stared: false
+      stared: false,
+      highlighted: true,
     },
     {
       label: "T-shirt wit lopende mieren",
@@ -107,7 +112,8 @@ export const initialState: IAppState = {
         "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_v6.png?raw=true",
       description: "Deluxe wit t-shirt met lopende mieren op borst en rug.",
       stars: 0,
-      stared: false
+      stared: false,
+      highlighted: true,
     }
   ],
   paginas: [
