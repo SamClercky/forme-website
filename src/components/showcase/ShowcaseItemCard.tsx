@@ -4,7 +4,6 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  Card,
   CardActionArea,
   CardMedia,
   CardContent,
@@ -13,7 +12,6 @@ import {
   IconButton,
   Collapse
 } from "@material-ui/core";
-import transitions from "@material-ui/core/styles/transitions";
 import CustomShowcaseCard from "./CustomShowcaseCard";
 import LazyLoad from "react-lazyload";
 import { Favorite, Share } from "@material-ui/icons";
@@ -21,11 +19,8 @@ import { Dispatch } from "redux";
 import { IAppState } from "../../redux/initialState";
 import { connect } from "react-redux";
 import {
-  IRemoveFavoriteAction,
-  IAddFavoriteAction,
   AppActions
 } from "../../redux/actions";
-import ShareButton from "../common/ShareButton";
 import {
   FacebookShareButton,
   LinkedinShareButton,

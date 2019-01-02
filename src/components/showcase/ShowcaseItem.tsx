@@ -4,12 +4,6 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  Card,
-  CardMedia,
-  CardActionArea,
-  Typography,
-  CardContent,
-  Dialog,
   Slide,
   Modal
 } from "@material-ui/core";

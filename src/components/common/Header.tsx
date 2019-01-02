@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
-import SideBar, { drawerWidth } from "./SideBar";
+import SideBar from "./SideBar";
 
 export interface ILinkList {
   url: string;

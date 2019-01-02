@@ -5,14 +5,11 @@ import {
   WithStyles,
   Theme,
   Paper,
-  Typography,
-  Grid,
-  Avatar
+  Typography
 } from "@material-ui/core";
 import logo from "../../logo.svg";
 import ShowcaseRow from "../showcase/ShowcaseRow";
 import Headline from "../common/Headline";
-import ContactEntryContainer from "../contact/ContactEntryContainer";
 import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";

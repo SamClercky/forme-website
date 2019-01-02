@@ -6,7 +6,7 @@ import {
   IWebpage,
   IContactInfo
 } from "./initialState";
-import { combineReducers, Reducer, Action } from "redux";
+import { combineReducers, Reducer } from "redux";
 import { AppActions } from "./actions";
 
 const collection: Reducer<ICollectionItem[], AppActions> = (

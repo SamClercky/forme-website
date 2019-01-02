@@ -1,5 +1,5 @@
-import React, { ReactChild } from "react";
-import { withStyles, createStyles, WithStyles, Theme } from "@material-ui/core";
+import React from "react";
+import { withStyles, createStyles, Theme } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 const styles = (theme: Theme) =>

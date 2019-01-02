@@ -4,7 +4,6 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  Typography,
   Paper
 } from "@material-ui/core";
 import logo from "../../logo.svg";

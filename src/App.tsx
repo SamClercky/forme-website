@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-//import './App.css';
 import Home from "./components/home/Home";
 import { Theme, createStyles, WithStyles, withStyles } from "@material-ui/core";
 import About from "./components/about/About";

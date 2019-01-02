@@ -13,7 +13,6 @@ import {
   WithStyles
 } from "@material-ui/core";
 import { Mail } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 import NoStyleLink from "./NoStyleLink";
 import { ILinkList } from "./Header";
 

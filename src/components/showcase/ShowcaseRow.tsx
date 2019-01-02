@@ -4,8 +4,6 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  GridList,
-  GridListTile
 } from "@material-ui/core";
 import ShowcaseItem from "./ShowcaseItem";
 import { IAppState, ICollectionItem } from "../../redux/initialState";
