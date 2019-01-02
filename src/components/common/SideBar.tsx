@@ -58,7 +58,9 @@ class SideBarComponent extends React.Component<ISideBarProps> {
               <NoStyleLink to={e.url} key={e.url}>
                 <ListItem button selected={e.isActive}>
                   <ListItemIcon>
-                    <Mail />
+                    {
+                      e.iconName
+                    }
                   </ListItemIcon>
                   <ListItemText primary={e.label} />
                 </ListItem>

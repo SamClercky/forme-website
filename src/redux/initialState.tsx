@@ -1,3 +1,6 @@
+import React from "react"
+import { Home, Store, Contacts, Face } from "@material-ui/icons";
+
 /**
  * Describes the way users can communicate with us
  */
@@ -47,7 +50,7 @@ export interface ICollectionItem {
 export interface IWebpage {
   label: string;
   url: string;
-  iconName?: string;
+  iconName: React.ReactElement<any>;
 }
 
 export interface IVendorMoment {
@@ -120,22 +123,22 @@ export const initialState: IAppState = {
     {
       label: "Home",
       url: "/",
-      iconName: undefined
+      iconName: <Home />
     },
     {
       label: "Collectie",
       url: "/showcase",
-      iconName: undefined
+      iconName: <Store />
     },
     {
       label: "Over ons",
       url: "/over-ons",
-      iconName: undefined
+      iconName: <Face />
     },
     {
       label: "Contact",
       url: "/contact",
-      iconName: undefined
+      iconName: <Contacts />
     },
   ],
   contact: [

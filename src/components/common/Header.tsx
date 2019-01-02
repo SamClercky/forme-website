@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import {
   withStyles,
   createStyles,
@@ -12,10 +12,9 @@ import {
 import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
 import SideBar from "./SideBar";
+import { IWebpage } from "../../redux/initialState";
 
-export interface ILinkList {
-  url: string;
-  label: string;
+export interface ILinkList extends IWebpage {
   isActive: boolean;
 }
 
@@ -78,7 +77,7 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
   }
 
   handleResize() {
-    if (window.innerWidth < this.props.theme.breakpoints.values.sm) {
+    if (window.innerWidth < this.props.theme.breakpoints.values.md) {
       // mobileRes == true
       if (this.state.isMobileRes == false) {
         // only change when needed

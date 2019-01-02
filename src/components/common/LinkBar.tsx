@@ -40,13 +40,12 @@ class LinkBarComponent extends React.Component<ILinkBarProps, {}> {
         {links.map((e, i) => {
           return (
             <React.Fragment key={e.url}>
-              <NoStyleLink
-                to={e.url}
-              >
+              <NoStyleLink to={e.url}>
                 <Button
                   variant={e.isActive ? "outlined" : "text"}
                   color="inherit"
                 >
+                  <div style={{marginRight: "10px"}}>{e.iconName}</div>
                   {e.label}
                 </Button>
               </NoStyleLink>
