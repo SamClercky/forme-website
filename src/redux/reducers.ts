@@ -6,35 +6,35 @@ import {
   IWebpage,
   IContactInfo
 } from "./initialState";
-import { IAction, ADD_FAVORITE, REMOVE_FAVORITE } from "./actions";
 import { combineReducers, Reducer, Action } from "redux";
+import { AppActions } from "./actions";
 
-const collection: Reducer<ICollectionItem[], Action<IAction>> = (
+const collection: Reducer<ICollectionItem[], AppActions> = (
   state = initialState.collection,
   action
 ) => {
-  let result = state;
-  switch (action.type.action) {
-    case ADD_FAVORITE:
-      result.map(e => {
-        if (e.url == action.type.arg) {
+  let result = [...state]; // copy currState
+  switch (action.type) {
+    case "add_favorite":
+      result = result.map(e => {
+        if (e.url == action.urlFavorite) {
           return {
+            ...e,
             stared: true,
-            start: e.stars + 1,
-            ...e
+            stars: e.stars + 1,
           } as ICollectionItem;
         } else {
           return e;
         }
       });
       break;
-    case REMOVE_FAVORITE:
-      result.map(e => {
-        if (e.url == action.type.arg) {
+    case "remove_favorite":
+      result = result.map(e => {
+        if (e.url == action.urlFavorite) {
           return {
+            ...e,
             stared: false,
             start: e.stars - 1,
-            ...e
           } as ICollectionItem;
         } else {
           return e;
@@ -42,31 +42,36 @@ const collection: Reducer<ICollectionItem[], Action<IAction>> = (
       });
       break;
   }
+  console.log({
+    result: result,
+    state: state,
+    action: action
+  });
   return result;
 };
 
-const contact: Reducer<IContactInfo[], Action<IAction>> = (
+const contact: Reducer<IContactInfo[], AppActions> = (
   state = initialState.contact,
   action
 ) => {
   return state; // nothing to change yet
 };
 
-const paginas: Reducer<IWebpage[], Action<IAction>> = (
+const paginas: Reducer<IWebpage[], AppActions> = (
   state = initialState.paginas,
   action
 ) => {
   return state; // nothing to change yet
 };
 
-const vendorMoments: Reducer<IVendorMoment[], Action<IAction>> = (
+const vendorMoments: Reducer<IVendorMoment[], AppActions> = (
   state = initialState.vendorMoments,
   action
 ) => {
-  return state; // nothinh to change yet
+  return state; // nothing to change yet
 };
 
-export const globalReducer = combineReducers<IAppState>({
+export const globalReducer = combineReducers<IAppState, AppActions>({
   collection: collection,
   contact: contact,
   paginas: paginas,

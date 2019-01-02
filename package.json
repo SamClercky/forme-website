@@ -16,6 +16,7 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.2",
+    "react-share": "^2.4.0",
     "redux": "^4.0.1",
     "typescript": "^3.2.2"
   },
@@ -39,6 +40,7 @@
     "@types/react-lazyload": "^2.3.1",
     "@types/react-redux": "^6.0.11",
     "@types/react-router-dom": "^4.3.1",
+    "@types/react-share": "^2.1.1",
     "@types/redux": "^3.6.0"
   }
 }
