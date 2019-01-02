@@ -40,7 +40,7 @@ class AboutComponent extends React.Component<IAboutProps, IAboutState> {
       linkList: props.linkList.map(e => {
         // transform a simple linklist to a ILinkList
         return {
-          isActive: e.label == this.props.paginas[1].label,
+          isActive: e.label == this.props.paginas[2].label,
           ...e
         } as ILinkList;
       })

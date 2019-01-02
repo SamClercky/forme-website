@@ -4,7 +4,6 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  Slide,
   Modal
 } from "@material-ui/core";
 import ShowcaseItemCard, { CardSizes } from "./ShowcaseItemCard";
@@ -79,7 +78,7 @@ class ShowcaseItemComponent extends React.Component<
 
     return (
       <>
-        <div onClick={this.handleDialogOpen}>
+        <div onClick={this.handleDialogOpen} className={this.props.className}>
           <ShowcaseItemCard
             cardSize={CardSizes.small}
             cardLabel={this.props.itemLabel}
@@ -100,10 +99,6 @@ class ShowcaseItemComponent extends React.Component<
       </>
     );
   }
-}
-
-function Transition(props: any) {
-  return <Slide direction="up" {...props} />;
 }
 
 export default withStyles(styles)(ShowcaseItemComponent);

@@ -35,7 +35,7 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
       linkList: props.linkList.map(e => {
         // transform a simple linklist to a ILinkList
         return {
-          isActive: e.label == this.props.paginas[2].label,
+          isActive: e.label == this.props.paginas[3].label,
           ...e
         } as ILinkList;
       })
@@ -47,7 +47,7 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
     return (
       <>
         <Header
-          title="Over ons"
+          title="Contacteer ons"
           linkList={this.state.linkList}
         />
         <Paper className={this.props.className + " " + classes.root}>

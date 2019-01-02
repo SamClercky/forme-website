@@ -6,9 +6,10 @@ import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
 import { connect } from "react-redux";
 import { IAppState, IWebpage, initialState } from "./redux/initialState";
+import Showcase from "./components/showcase/Showcase";
 
 interface IAppProps extends WithStyles<typeof styles> {
-  paginas?: IWebpage[]
+  paginas?: IWebpage[];
 }
 
 const styles = (theme: Theme) =>
@@ -39,16 +40,36 @@ const styles = (theme: Theme) =>
   });
 
 class App extends Component<IAppProps, {}> {
-  _paginas = this.props.paginas != undefined ? this.props.paginas : initialState.paginas
+  _paginas =
+    this.props.paginas != undefined ? this.props.paginas : initialState.paginas;
 
   _home = () => (
-    <Home className={this.props.classes.page} linkList={this._paginas} paginas={this._paginas} />
+    <Home
+      className={this.props.classes.page}
+      linkList={this._paginas}
+      paginas={this._paginas}
+    />
   );
   _about = () => (
-    <About className={this.props.classes.page} linkList={this._paginas} paginas={this._paginas} />
+    <About
+      className={this.props.classes.page}
+      linkList={this._paginas}
+      paginas={this._paginas}
+    />
   );
   _contact = () => (
-    <Contact className={this.props.classes.page} linkList={this._paginas} paginas={this._paginas} />
+    <Contact
+      className={this.props.classes.page}
+      linkList={this._paginas}
+      paginas={this._paginas}
+    />
+  );
+  _showcase = () => (
+    <Showcase
+      className={this.props.classes.page}
+      linkList={this._paginas}
+      paginas={this._paginas}
+    />
   );
 
   render() {
@@ -65,10 +86,15 @@ class App extends Component<IAppProps, {}> {
             <Route
               path={this._paginas[1].url}
               exact
-              component={this._about}
+              component={this._showcase}
             />
             <Route
               path={this._paginas[2].url}
+              exact
+              component={this._about}
+            />
+            <Route
+              path={this._paginas[3].url}
               exact
               component={this._contact}
             />
@@ -82,7 +108,7 @@ class App extends Component<IAppProps, {}> {
 const mapStateToProps = (state: IAppState, props: IAppProps) => {
   return {
     paginas: state.paginas
-  }
-}
+  };
+};
 
 export default withStyles(styles)(connect(mapStateToProps)(App));

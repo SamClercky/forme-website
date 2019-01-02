@@ -123,6 +123,11 @@ export const initialState: IAppState = {
       iconName: undefined
     },
     {
+      label: "Collectie",
+      url: "/showcase",
+      iconName: undefined
+    },
+    {
       label: "Over ons",
       url: "/over-ons",
       iconName: undefined
@@ -131,7 +136,7 @@ export const initialState: IAppState = {
       label: "Contact",
       url: "/contact",
       iconName: undefined
-    }
+    },
   ],
   contact: [
     {
