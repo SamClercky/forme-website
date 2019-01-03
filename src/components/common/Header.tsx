@@ -13,6 +13,7 @@ import { Menu } from "@material-ui/icons";
 import LinkBar from "./LinkBar";
 import SideBar from "./SideBar";
 import { IWebpage } from "../../redux/initialState";
+import { Text } from "./Headline";
 
 export interface ILinkList extends IWebpage {
   isActive: boolean;
@@ -133,9 +134,9 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
                 </IconButton>
               ) : null}
 
-              <Typography variant="h6" color="inherit" className={classes.grow}>
+              <Text variant="h6" color="inherit" className={classes.grow}>
                 {title}
-              </Typography>
+              </Text>
 
               {!this.state.isMobileRes ? ( // desktop only
                 <LinkBar linkList={this.props.linkList} />

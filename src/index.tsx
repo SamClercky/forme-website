@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//import "./index.css";
+// import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import {
@@ -16,14 +16,17 @@ import { store } from "./redux/store";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: red[900]
+      main: red[900],
     },
     secondary: {
       main: grey[50],
       light: grey[50],
       dark: grey[900],
-      contrastText: grey[900]
-    }
+      contrastText: grey[900],
+    },
+  },
+  typography: {
+    // htmlFontSize: 18,
   }
 });
 

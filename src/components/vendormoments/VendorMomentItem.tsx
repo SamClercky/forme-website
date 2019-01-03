@@ -7,6 +7,7 @@ import {
   Typography
 } from "@material-ui/core";
 import { IVendorMoment } from "../../redux/initialState";
+import { Text } from "../common/Headline";
 
 export interface IVendorMomentItemProps extends WithStyles<typeof styles> {
   className?: string;
@@ -23,7 +24,7 @@ class VendorMomentItemComponent extends React.Component<
     const { vendorMoment } = this.props;
     return (
       <li>
-        <Typography variant="body1">
+        <Text variant="body1">
           {vendorMoment.label}:{" "} 
           {vendorMoment.date.map((d, i, array) => {
             let result = d.toLocaleDateString();
@@ -34,7 +35,7 @@ class VendorMomentItemComponent extends React.Component<
             }
             return result;
           })}
-        </Typography>
+        </Text>
       </li>
     );
   }

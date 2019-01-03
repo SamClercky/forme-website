@@ -6,7 +6,7 @@ import {
   Theme,
   Typography
 } from "@material-ui/core";
-import Headline from "../common/Headline";
+import Headline, { Text } from "../common/Headline";
 import ContactEntryContainer from "../contact/ContactEntryContainer";
 import LazyLoad from "react-lazyload";
 
@@ -29,7 +29,7 @@ const styles = (theme: Theme) =>
       width: "default"
     },
     text: {
-      textAlign: "justify"
+      // textAlign: "justify"
     }
   });
 
@@ -39,9 +39,9 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
 
     return (
       <section className={classes.root}>
-        <Headline variant="h2" align="left">
+        <Text variant="h1" align="left">
           Over ons
-        </Headline>
+        </Text>
         <LazyLoad height="15vh">
           <img
             src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
@@ -50,7 +50,7 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
             className={classes.groepsfoto}
           />
         </LazyLoad>
-        <Typography variant="body1" className={classes.text}>
+        <Text variant="body1" className={classes.text} paragraph>
           Wij zijn een bedrijf opgestart door een hand vol leerlingen die graag
           eens wouden zien hoe moeilijk het nou zou zijn om een bedrijf op te
           starten.
@@ -58,10 +58,10 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
           Dit proberen wij als een leervolle ervaring via Vlajo te doen. Vlajo
           is een organisatie die jongeren zoals wij een juridisch veilig kader
           geeft om als leerling te ondernemen.
-        </Typography>
-        <Typography variant="h3" align="left">
+        </Text>
+        <Headline variant="h3" align="left">
           Wie is wie
-        </Typography>
+        </Headline>
         <ContactEntryContainer />
       </section>
     );

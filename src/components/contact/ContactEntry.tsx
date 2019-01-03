@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import LazyLoad from "react-lazyload";
 import { IContactInfo } from "../../redux/initialState";
+import { Text } from "../common/Headline";
 
 export interface IContactEntryProps extends WithStyles<typeof styles> {
   className?: string;
@@ -82,19 +83,19 @@ class ContactEntryComponent extends React.Component<IContactEntryProps, {}> {
             </Avatar>
           </Grid>
           <Grid item xs zeroMinWidth>
-            <Typography variant="h6">{contact.function}</Typography>
-            <Typography>
+            <Text variant="h6">{contact.function}</Text>
+            <Text>
               <strong>{contact.name}: </strong>
               {contact.description}
-            </Typography>
+            </Text>
             <ul>
               {contact.communication.map(comm => {
                 return (
                   <li key={comm.type}>
-                    <Typography>
+                    <Text>
                       {comm.label}:{" "}
                       <a href={`${comm.type}${comm.url}`}>{comm.adres}</a>
-                    </Typography>
+                    </Text>
                   </li>
                 );
               })}

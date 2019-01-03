@@ -1,9 +1,44 @@
 import { withStyles, Typography, Theme, createStyles } from "@material-ui/core";
 
-const styles = (theme: Theme) => createStyles({
+const HeadlineUnderlineStyles = (theme: Theme) =>
+  createStyles({
     root: {
-        borderBottom: `solid 1px ${theme.palette.secondary.contrastText}`
-    }
-})
+      borderBottom: `solid 1px ${theme.palette.secondary.contrastText}`
+    },
+    h2: {
+      fontSize: "2.5rem",
+    },
+    h3: {
+      fontSize: "2rem",
+    },
+  });
 
-export default withStyles(styles)(Typography);
+const TextStyle = (theme: Theme) =>
+  createStyles({
+    h1: {
+      fontSize: "4rem"
+    },
+    h2: {
+      fontSize: "3rem"
+    },
+    h3: {
+      fontSize: "2.5rem"
+    },
+    h4: {
+      fontSize: "2rem"
+    },
+    paragraph: {
+      fontSize: "1rem",
+      textAlign: "justify"
+    }
+  });
+
+export const HeadlineUnderline = withStyles(HeadlineUnderlineStyles)(
+  Typography
+);
+export const Text = withStyles(TextStyle)(Typography);
+
+/**
+ * @deprecated use the specific HeadlineUnderline instead
+ */
+export default HeadlineUnderline; // for compatibility

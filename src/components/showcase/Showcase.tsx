@@ -12,6 +12,7 @@ import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
 import { connect } from "react-redux";
 import ShowcaseItem from "./ShowcaseItem";
+import { Text } from "../common/Headline";
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {
   className?: string;
@@ -76,7 +77,7 @@ class ShowcaseComponent extends React.Component<
       <>
         <Header title="Onze collectie" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
-          <Typography variant="h1">Onze collectie</Typography>
+          <Text variant="h1">Onze collectie</Text>
           <div className={classes.grid}>
             {collection.map(e => (
               <ShowcaseItem

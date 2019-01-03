@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import logo from "../../logo_splashscreen.svg";
 import ShowcaseRow from "../showcase/ShowcaseRow";
-import Headline from "../common/Headline";
+import Headline, { Text } from "../common/Headline";
 import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";
@@ -97,12 +97,12 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         <Paper className={this.props.className + " " + classes.root}>
           <img src={logo} className={classes.splashscreen} />
           <div className={classes.title}>
-            <Typography variant="h1">
+            <Text variant="h1" style={{fontFamily: "'Bevan'"}}>
               Forme
-            </Typography>
-            <Typography variant="h3">
+            </Text>
+            <Text variant="h3">
               Wij staan voor standvastigheid.
-            </Typography>
+            </Text>
           </div>
           <Headline variant="h2" align="left">
             Onze uitgelichte Producten
