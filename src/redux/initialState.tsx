@@ -42,6 +42,7 @@ export interface ICollectionItem {
   stared: boolean;
   stars: number;
   highlighted: boolean;
+  price: number;
 }
 
 /**
@@ -79,6 +80,7 @@ export const initialState: IAppState = {
       stars: 0,
       stared: false,
       highlighted: false,
+      price: 0,
     },
     {
       label: "T-shirt wit mier zwart (groot)",
@@ -89,6 +91,7 @@ export const initialState: IAppState = {
       stars: 0,
       stared: false,
       highlighted: false,
+      price: 0,
     },
     {
       label: "T-shirt wit mier rood (groot)",
@@ -99,6 +102,7 @@ export const initialState: IAppState = {
       stars: 0,
       stared: false,
       highlighted: false,
+      price: 0,
     },
     {
       label: "T-shirt wit mier rood (klein)",
@@ -108,6 +112,7 @@ export const initialState: IAppState = {
       stars: 0,
       stared: false,
       highlighted: true,
+      price: 0,
     },
     {
       label: "T-shirt wit lopende mieren",
@@ -117,6 +122,7 @@ export const initialState: IAppState = {
       stars: 0,
       stared: false,
       highlighted: true,
+      price: 0,
     }
   ],
   paginas: [

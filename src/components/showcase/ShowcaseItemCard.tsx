@@ -10,11 +10,12 @@ import {
   Typography,
   CardActions,
   IconButton,
-  Collapse
+  Collapse,
+  CardHeader
 } from "@material-ui/core";
 import CustomShowcaseCard from "./CustomShowcaseCard";
 import LazyLoad from "react-lazyload";
-import { Favorite, Share } from "@material-ui/icons";
+import { Favorite, Share, Close } from "@material-ui/icons";
 import { Dispatch } from "redux";
 import { IAppState } from "../../redux/initialState";
 import { connect } from "react-redux";
@@ -44,10 +45,12 @@ export interface IShowcaseItemCardProps extends WithStyles<typeof styles> {
   cardLabel: string;
   cardUrl: string;
   cardDescription: string;
+  cardPrice: number;
   removeFavorite?: () => void;
   addFavorite?: () => void;
   starCount?: number;
   stared?: boolean;
+  onRequestToClose?: () => void;
 }
 
 const styles = (theme: Theme) =>
@@ -92,6 +95,13 @@ const styles = (theme: Theme) =>
       alignContent: "center",
       justifyContent: "space-evenly",
       backgroundColor: theme.palette.primary.main
+    },
+    priceTag: {
+      flexGrow: 1,
+      textAlign: "right",
+      verticalAlign: "middle",
+      height: "100%",
+      margin: "0px"
     }
   });
 
@@ -153,6 +163,18 @@ class ShowcaseItemCardComponent extends React.Component<
         }`}
       >
         <CardActionArea>
+          {this.props.onRequestToClose != undefined ? (
+            <CardHeader
+              action={
+                <IconButton
+                  component="div"
+                  onClick={this.props.onRequestToClose}
+                >
+                  <Close />
+                </IconButton>
+              }
+            />
+          ) : null}
           <LazyLoad height="25vh">
             <CardMedia
               component="img"
@@ -176,11 +198,16 @@ class ShowcaseItemCardComponent extends React.Component<
               >
                 <Favorite />
               </IconButton>
-              <Text style={{display: "inline"}} variant="display1" paragraph>{this.props.starCount}</Text>
+              <Text style={{ display: "inline" }} variant="display1" paragraph>
+                {this.props.starCount}
+              </Text>
             </div>
             <IconButton onClick={this.onShareToggle} component="div">
               <Share />
             </IconButton>
+            <Text variant="display1" className={classes.priceTag} paragraph>
+              € {this.props.cardPrice}
+            </Text>
           </CardActions>
           <Collapse in={this.state.open} timeout="auto" unmountOnExit>
             <CardContent className={classes.socialCollapse}>

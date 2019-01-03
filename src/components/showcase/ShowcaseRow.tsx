@@ -45,6 +45,7 @@ class ShowcaseRowComponent extends React.Component<IShowcaseRowProps, {}> {
           itemLabel={e.label}
           itemUrl={e.url}
           itemDescription={e.description}
+          itemPrice={e.price}
           key={e.url}
         />
       );

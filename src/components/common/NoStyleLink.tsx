@@ -6,7 +6,7 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       background: "none",
-      color: theme.palette.secondary.light,
+      color: "inherit",
       textDecoration: "none"
     }
   });

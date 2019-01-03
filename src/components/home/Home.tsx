@@ -15,6 +15,8 @@ import Footer from "../common/Footer";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";
 import AboutContent from "../about/AboutContent";
 import { IWebpage } from "../../redux/initialState";
+import { Link } from "react-router-dom";
+import NoStyleLink from "../common/NoStyleLink";
 
 interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
@@ -64,9 +66,9 @@ const styles = (theme: Theme) =>
       right: "0px",
       margin: "0px",
       width: "100%",
-      height: "80vh",
+      height: "60vh",
       objectFit: "cover"
-    }
+    },
   });
 
 interface IHomeState {
@@ -103,7 +105,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             <Text variant="h3">Wij staan voor standvastigheid.</Text>
           </div>
           <Headline variant="h2" align="left">
-            Onze uitgelichte Producten
+            <NoStyleLink to="/showcase">Onze uitgelichte Producten</NoStyleLink>
           </Headline>
           <ShowcaseRow onlyHighlighted={true} />
           <Headline variant="h2" align="left">
@@ -111,7 +113,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
           </Headline>
           <VendorMomentRow />
           <Headline variant="h2" align="left">
-            Over ons
+            <NoStyleLink to="/over-ons">Over ons</NoStyleLink>
           </Headline>
           <AboutContent />
         </Paper>

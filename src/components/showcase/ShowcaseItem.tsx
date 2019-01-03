@@ -14,6 +14,7 @@ export interface IShowcaseItemProps extends WithStyles<typeof styles> {
   itemLabel: string;
   itemUrl: string;
   itemDescription: string;
+  itemPrice: number;
 }
 
 interface IShowcaseItemState {
@@ -84,6 +85,7 @@ class ShowcaseItemComponent extends React.Component<
             cardLabel={this.props.itemLabel}
             cardUrl={this.props.itemUrl}
             cardDescription={this.props.itemDescription}
+            cardPrice={this.props.itemPrice}
           />
         </div>
         <Modal open={this.state.isDialogOpen} onClose={this.handleDialogClose}>
@@ -93,6 +95,8 @@ class ShowcaseItemComponent extends React.Component<
               cardLabel={this.props.itemLabel}
               cardUrl={this.props.itemUrl}
               cardDescription={this.props.itemDescription}
+              cardPrice={this.props.itemPrice}
+              onRequestToClose={this.handleDialogClose}
             />
           </div>
         </Modal>

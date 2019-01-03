@@ -85,6 +85,7 @@ class ShowcaseComponent extends React.Component<
                 itemLabel={e.label}
                 itemDescription={e.description}
                 itemUrl={e.url}
+                itemPrice={e.price}
                 className={classes.gridItem}
               />
             ))}
