@@ -7,7 +7,7 @@ import {
   Paper,
   Typography
 } from "@material-ui/core";
-import logo from "../../logo.svg";
+import logo from "../../logo_splashscreen.svg";
 import ShowcaseRow from "../showcase/ShowcaseRow";
 import Headline from "../common/Headline";
 import Header, { ILinkList } from "../common/Header";
@@ -22,34 +22,70 @@ interface IHomeProps extends WithStyles<typeof styles> {
     url: string;
     label: string;
   }[];
-  paginas: IWebpage[]
+  paginas: IWebpage[];
 }
 
 const styles = (theme: Theme) =>
   createStyles({
     root: {
-      padding: "10px",
-      overflow: "hidden"
+      // padding: "10px",
+      overflow: "hidden",
+      "& > *": {
+        marginLeft: "10px",
+        marginRight: "10px"
+      }
+    },
+    title: {
+      position: "absolute",
+      top: "50vh",
+      left: "50vw",
+
+      transform: "translate(-50%, -50%)",
+      margin: "0px",
+      textAlign: "center",
+      width: "100vw",
+      overflow: "hidden",
+      padding: "0px",
+
+      "& > h1": {
+        fontWeight: "bold",
+        letterSpacing: "5vw",
+        margin: "0px",
+        marginRight: "-10vw",
+      },
+      "& > h3": {
+        fontStyle: "italic",
+      }
+    },
+    splashscreen: {
+      position: "relative",
+      top: "0px",
+      left: "0px",
+      right: "0px",
+      margin: "0px",
+      width: "100%",
+      height: "80vh",
+      objectFit: "cover"
     }
   });
 
 interface IHomeState {
-  linkList: ILinkList[]
+  linkList: ILinkList[];
 }
 
 class Home extends React.Component<IHomeProps, IHomeState> {
-
   public constructor(props: IHomeProps) {
-    super(props)
-  
+    super(props);
+
     this.state = {
-      linkList: props.linkList.map(e => { // transform a simple linklist to a ILinkList
+      linkList: props.linkList.map(e => {
+        // transform a simple linklist to a ILinkList
         return {
           isActive: e.label == this.props.paginas[0].label,
           ...e
-        } as ILinkList
+        } as ILinkList;
       })
-    }
+    };
   }
 
   public render() {
@@ -57,14 +93,17 @@ class Home extends React.Component<IHomeProps, IHomeState> {
 
     return (
       <>
-        <Header
-          title="Welkom"
-          linkList={this.state.linkList}
-        />
+        <Header title="Welkom" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
-          <Typography variant="h1">Welkom bij Forme</Typography>
-          <img src={logo} />
-          <Typography variant="h3">Wij staan voor standvastigheid.</Typography>
+          <img src={logo} className={classes.splashscreen} />
+          <div className={classes.title}>
+            <Typography variant="h1">
+              Forme
+            </Typography>
+            <Typography variant="h3">
+              Wij staan voor standvastigheid.
+            </Typography>
+          </div>
           <Headline variant="h2" align="left">
             Onze uitgelichte Producten
           </Headline>
