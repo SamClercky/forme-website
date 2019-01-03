@@ -3,7 +3,8 @@ import { withStyles, Typography, Theme, createStyles } from "@material-ui/core";
 const HeadlineUnderlineStyles = (theme: Theme) =>
   createStyles({
     root: {
-      borderBottom: `solid 1px ${theme.palette.secondary.contrastText}`
+      borderBottom: `solid 1px ${theme.palette.secondary.contrastText}`,
+      color: "inherit",
     },
     h2: {
       fontSize: "2.5rem",
@@ -15,6 +16,9 @@ const HeadlineUnderlineStyles = (theme: Theme) =>
 
 const TextStyle = (theme: Theme) =>
   createStyles({
+    root: {
+      color: "inherit",
+    },
     h1: {
       fontSize: "4rem"
     },
