@@ -39,9 +39,6 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
 
     return (
       <section className={classes.root}>
-        <Text variant="h1" align="left">
-          Over ons
-        </Text>
         <LazyLoad height="15vh">
           <img
             src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"

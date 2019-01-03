@@ -34,7 +34,7 @@ const collection: Reducer<ICollectionItem[], AppActions> = (
           return {
             ...e,
             stared: false,
-            start: e.stars - 1,
+            stars: e.stars - 1,
           } as ICollectionItem;
         } else {
           return e;

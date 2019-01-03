@@ -10,6 +10,7 @@ import Header, { ILinkList } from "../common/Header";
 import Footer from "../common/Footer";
 import AboutContent from "./AboutContent";
 import { IWebpage } from "../../redux/initialState";
+import { Text } from "../common/Headline";
 
 export interface IAboutProps extends WithStyles<typeof styles> {
   className?: string;
@@ -17,7 +18,7 @@ export interface IAboutProps extends WithStyles<typeof styles> {
     url: string;
     label: string;
   }[];
-  paginas: IWebpage[]
+  paginas: IWebpage[];
 }
 
 const styles = (theme: Theme) =>
@@ -52,11 +53,11 @@ class AboutComponent extends React.Component<IAboutProps, IAboutState> {
 
     return (
       <>
-        <Header
-          title="Over ons"
-          linkList={this.state.linkList}
-        />
+        <Header title="Over ons" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
+          <Text variant="h1" align="left">
+            Over ons
+          </Text>
           <AboutContent />
         </Paper>
         <Footer />

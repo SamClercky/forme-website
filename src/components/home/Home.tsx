@@ -51,10 +51,10 @@ const styles = (theme: Theme) =>
         fontWeight: "bold",
         letterSpacing: "5vw",
         margin: "0px",
-        marginRight: "-10vw",
+        marginRight: "-10vw"
       },
       "& > h3": {
-        fontStyle: "italic",
+        fontStyle: "italic"
       }
     },
     splashscreen: {
@@ -97,12 +97,10 @@ class Home extends React.Component<IHomeProps, IHomeState> {
         <Paper className={this.props.className + " " + classes.root}>
           <img src={logo} className={classes.splashscreen} />
           <div className={classes.title}>
-            <Text variant="h1" style={{fontFamily: "'Bevan'"}}>
+            <Text variant="h1" style={{ fontFamily: "'Bevan'" }}>
               Forme
             </Text>
-            <Text variant="h3">
-              Wij staan voor standvastigheid.
-            </Text>
+            <Text variant="h3">Wij staan voor standvastigheid.</Text>
           </div>
           <Headline variant="h2" align="left">
             Onze uitgelichte Producten
@@ -112,6 +110,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             Onze verkoopmomenten
           </Headline>
           <VendorMomentRow />
+          <Headline variant="h2" align="left">
+            Over ons
+          </Headline>
           <AboutContent />
         </Paper>
         <Footer />

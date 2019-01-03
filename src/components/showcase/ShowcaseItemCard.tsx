@@ -18,9 +18,7 @@ import { Favorite, Share } from "@material-ui/icons";
 import { Dispatch } from "redux";
 import { IAppState } from "../../redux/initialState";
 import { connect } from "react-redux";
-import {
-  AppActions
-} from "../../redux/actions";
+import { AppActions } from "../../redux/actions";
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -33,6 +31,7 @@ import {
   WhatsappIcon,
   EmailIcon
 } from "react-share";
+import { Text } from "../common/Headline";
 
 export enum CardSizes {
   big = "big",
@@ -92,7 +91,7 @@ const styles = (theme: Theme) =>
       display: "flex",
       alignContent: "center",
       justifyContent: "space-evenly",
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.main
     }
   });
 
@@ -169,13 +168,16 @@ class ShowcaseItemCardComponent extends React.Component<
             <Typography component="p">{this.props.cardDescription}</Typography>
           </CardContent>
           <CardActions disableActionSpacing>
-            <IconButton
-              color={this.props.stared ? "primary" : "default"}
-              onClick={this.onFavoriteClick}
-              component="div"
-            >
-              <Favorite />
-            </IconButton>
+            <div>
+              <IconButton
+                color={this.props.stared ? "primary" : "default"}
+                onClick={this.onFavoriteClick}
+                component="div"
+              >
+                <Favorite />
+              </IconButton>
+              <Text style={{display: "inline"}} variant="display1" paragraph>{this.props.starCount}</Text>
+            </div>
             <IconButton onClick={this.onShareToggle} component="div">
               <Share />
             </IconButton>

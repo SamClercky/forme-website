@@ -14,6 +14,7 @@ import LinkBar from "./LinkBar";
 import SideBar from "./SideBar";
 import { IWebpage } from "../../redux/initialState";
 import { Text } from "./Headline";
+import logo_wit from "../../logo_wit.svg";
 
 export interface ILinkList extends IWebpage {
   isActive: boolean;
@@ -42,9 +43,11 @@ const styles = (theme: Theme) =>
       left: 0,
       zIndex: 200
     },
+    title: {
+      textAlign: "left",
+    },
     grow: {
       flexGrow: 1,
-      textAlign: "left"
     },
     menuButton: {
       marginRight: 20
@@ -134,9 +137,11 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
                 </IconButton>
               ) : null}
 
-              <Text variant="h6" color="inherit" className={classes.grow}>
+              <Text variant="h6" color="inherit" className={classes.title}>
                 {title}
               </Text>
+              
+              <img className={classes.grow} src={logo_wit} />
 
               {!this.state.isMobileRes ? ( // desktop only
                 <LinkBar linkList={this.props.linkList} />
