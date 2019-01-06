@@ -80,7 +80,7 @@ export const initialState: IAppState = {
       stars: 0,
       stared: false,
       highlighted: false,
-      price: 0,
+      price: 20,
     },
     {
       label: "T-shirt wit mier zwart (groot)",
