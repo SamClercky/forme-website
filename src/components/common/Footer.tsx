@@ -97,7 +97,7 @@ class FooterComponentComponent extends React.Component<
               </ul>
             </div>
             <div className={classes.legalSection}>
-              <Text variant="h6">Legaal</Text>
+              <Text variant="h6">Externe bronnen</Text>
               <ul>
                 <li>
                   <Button component="div" color="inherit">

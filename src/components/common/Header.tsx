@@ -143,7 +143,7 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
                 <NoStyleLink to="/">{title}</NoStyleLink>
               </Text>
 
-              <img src={logo_wit} className={classes.grow} />
+              <img src={logo_wit} className={classes.grow} alt="Logo van het bedrijf Forme" title="Logo van het bedrijf Forme" />
 
               {!this.state.isMobileRes ? ( // desktop only
                 <LinkBar linkList={this.props.linkList} />

@@ -12,6 +12,7 @@ import AboutContent from "./AboutContent";
 import { IWebpage } from "../../redux/initialState";
 import { Text } from "../common/Headline";
 import ScrollToTop from "../common/ScrollToTop";
+import Helmet from "react-helmet";
 
 export interface IAboutProps extends WithStyles<typeof styles> {
   className?: string;
@@ -54,6 +55,17 @@ class AboutComponent extends React.Component<IAboutProps, IAboutState> {
 
     return (
       <>
+        <Helmet>
+          <title>Over ons</title>
+          <meta
+            name="description"
+            content="Deze pagina gaat over ons als bedrijf"
+          />
+          <meta
+            name="keywords"
+            content="forme, tshirts, t-shirts, vlajo, overzicht, over ons, about us"
+          />
+        </Helmet>
         <Header title="Over ons" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
           <Text variant="h1" align="left">

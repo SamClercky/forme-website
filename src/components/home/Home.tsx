@@ -18,6 +18,7 @@ import { IWebpage } from "../../redux/initialState";
 import { Link } from "react-router-dom";
 import NoStyleLink from "../common/NoStyleLink";
 import ScrollToTop from "../common/ScrollToTop";
+import Helmet from "react-helmet";
 
 interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;
@@ -69,7 +70,7 @@ const styles = (theme: Theme) =>
       width: "100%",
       height: "60vh",
       objectFit: "cover"
-    },
+    }
   });
 
 interface IHomeState {
@@ -96,28 +97,42 @@ class Home extends React.Component<IHomeProps, IHomeState> {
 
     return (
       <>
+        <Helmet>
+          <title>Welkom Forme</title>
+          <meta name="description" content="Dit is de homepagina van de website voor het bedrijf Forme" />
+          <meta name="keywords" content="forme, tshirts, t-shirts, vlajo, overzicht" />
+        </Helmet>
         <Header title="Welkom" linkList={this.state.linkList} />
-        <Paper className={this.props.className + " " + classes.root}>
-          <img src={logo} className={classes.splashscreen} />
-          <div className={classes.title}>
-            <Text variant="h1" style={{ fontFamily: "'Bevan'" }}>
-              Forme
-            </Text>
-            <Text variant="h3">Wij staan voor standvastigheid.</Text>
-          </div>
-          <Headline variant="h2" align="left">
-            <NoStyleLink to="/showcase">Onze uitgelichte Producten</NoStyleLink>
-          </Headline>
-          <ShowcaseRow onlyHighlighted={true} />
-          <Headline variant="h2" align="left">
-            Onze verkoopmomenten
-          </Headline>
-          <VendorMomentRow />
-          <Headline variant="h2" align="left">
-            <NoStyleLink to="/over-ons">Over ons</NoStyleLink>
-          </Headline>
-          <AboutContent />
-        </Paper>
+        <main>
+          <Paper className={this.props.className + " " + classes.root}>
+            <img
+              src={logo}
+              className={classes.splashscreen}
+              alt="Achtergrondafbeelding"
+              title="Achtergrondafbeelding voor de Home-page van het bedrijf Forme"
+            />
+            <div className={classes.title}>
+              <Text variant="h1" style={{ fontFamily: "'Bevan'" }}>
+                Forme
+              </Text>
+              <Text variant="h3">Wij staan voor standvastigheid.</Text>
+            </div>
+            <Headline variant="h2" align="left">
+              <NoStyleLink to="/showcase">
+                Onze uitgelichte Producten
+              </NoStyleLink>
+            </Headline>
+            <ShowcaseRow onlyHighlighted={true} />
+            <Headline variant="h2" align="left">
+              Onze verkoopmomenten
+            </Headline>
+            <VendorMomentRow />
+            <Headline variant="h2" align="left">
+              <NoStyleLink to="/over-ons">Over ons</NoStyleLink>
+            </Headline>
+            <AboutContent />
+          </Paper>
+        </main>
         <Footer />
       </>
     );

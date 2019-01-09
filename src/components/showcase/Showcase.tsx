@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 import ShowcaseItem from "./ShowcaseItem";
 import { Text } from "../common/Headline";
 import ScrollToTop from "../common/ScrollToTop";
+import Helmet from "react-helmet";
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {
   className?: string;
@@ -75,6 +76,17 @@ class ShowcaseComponent extends React.Component<
 
     return (
       <>
+        <Helmet>
+          <title>Onze collectie</title>
+          <meta
+            name="description"
+            content="Hier vinden jullie al onze producten"
+          />
+          <meta
+            name="keywords"
+            content="forme, tshirts, t-shirts, vlajo, collectie"
+          />
+        </Helmet>
         <Header title="Onze collectie" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
           <Text variant="h1">Onze collectie</Text>
