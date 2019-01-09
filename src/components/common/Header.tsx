@@ -48,7 +48,8 @@ const styles = (theme: Theme) =>
       textAlign: "left"
     },
     grow: {
-      flexGrow: 1
+      marginLeft: "auto",
+      marginRight: "auto",
     },
     menuButton: {
       marginRight: 20

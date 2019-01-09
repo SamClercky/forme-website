@@ -161,13 +161,14 @@ class ShowcaseItemCardComponent extends React.Component<
             ? classes.cardBig
             : classes.cardSmall
         }`}
+        component="div"
       >
-        <CardActionArea>
+        <CardActionArea
+          component="div">
           {this.props.onRequestToClose != undefined ? (
             <CardHeader
               action={
                 <IconButton
-                  component="div"
                   onClick={this.props.onRequestToClose}
                 >
                   <Close />
@@ -194,7 +195,6 @@ class ShowcaseItemCardComponent extends React.Component<
               <IconButton
                 color={this.props.stared ? "primary" : "default"}
                 onClick={this.onFavoriteClick}
-                component="div"
               >
                 <Favorite />
               </IconButton>
@@ -202,7 +202,7 @@ class ShowcaseItemCardComponent extends React.Component<
                 {this.props.starCount}
               </Text>
             </div>
-            <IconButton onClick={this.onShareToggle} component="div">
+            <IconButton onClick={this.onShareToggle}>
               <Share />
             </IconButton>
             <Text variant="display1" className={classes.priceTag} paragraph>

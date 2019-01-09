@@ -10,6 +10,7 @@ import {
 import vlajo from "../../Mini_logo_RGB.jpg";
 import { Text } from "./Headline";
 import NoStyleLink from "./NoStyleLink";
+import LazyLoad from "react-lazyload";
 
 export interface IFooterComponentProps extends WithStyles<typeof styles> {
   className?: string;
@@ -67,7 +68,9 @@ class FooterComponentComponent extends React.Component<
       <footer>
         <Paper className={classes.paper}>
           <div className={classes.gridLayout}>
+          <LazyLoad height={305}>
             <img className={classes.vlajoFoto} src={vlajo} />
+          </LazyLoad>
             <div className={classes.webLinksSection}>
               <Text variant="h6">Weblinks</Text>
               <ul>
