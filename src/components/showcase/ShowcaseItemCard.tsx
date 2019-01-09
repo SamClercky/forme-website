@@ -33,6 +33,7 @@ import {
   EmailIcon
 } from "react-share";
 import { Text } from "../common/Headline";
+import Placeholder from "../../placeholder.svg";
 
 export enum CardSizes {
   big = "big",
@@ -163,20 +164,26 @@ class ShowcaseItemCardComponent extends React.Component<
         }`}
         component="div"
       >
-        <CardActionArea
-          component="div">
+        <CardActionArea component="div">
           {this.props.onRequestToClose != undefined ? (
             <CardHeader
               action={
-                <IconButton
-                  onClick={this.props.onRequestToClose}
-                >
+                <IconButton onClick={this.props.onRequestToClose}>
                   <Close />
                 </IconButton>
               }
             />
           ) : null}
-          <LazyLoad height="25vh">
+          <LazyLoad
+            height="25vh"
+            placeholder={
+              <img
+                src={Placeholder}
+                title={this.props.cardLabel}
+                alt={this.props.cardLabel}
+              />
+            }
+          >
             <CardMedia
               component="img"
               className={classes.media}

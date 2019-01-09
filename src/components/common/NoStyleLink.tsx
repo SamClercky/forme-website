@@ -11,10 +11,10 @@ const styles = (theme: Theme) =>
     }
   });
 
-function NoStyleLinkComponent(props: any) {
+function NoStyleLinkComponent(props: {normallink: boolean;} | any) {
   return (
     <>
-      {(props.normallink == true) ?
+      {(props.normallink == "true") ?
       <a
         href={props.to}
         className={`${props.classes.root} ${props.className}`}

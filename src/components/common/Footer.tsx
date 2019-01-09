@@ -101,7 +101,7 @@ class FooterComponentComponent extends React.Component<
               <ul>
                 <li>
                   <Button component="div" color="inherit">
-                    <NoStyleLink normallink to="https://www.vlajo.org/">Vlajo</NoStyleLink>
+                    <NoStyleLink normallink="true" to="https://www.vlajo.org/">Vlajo</NoStyleLink>
                   </Button>
                 </li>
               </ul>

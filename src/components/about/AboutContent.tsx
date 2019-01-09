@@ -9,6 +9,7 @@ import {
 import Headline, { Text } from "../common/Headline";
 import ContactEntryContainer from "../contact/ContactEntryContainer";
 import LazyLoad from "react-lazyload";
+import Placeholder from "../../placeholder.svg"
 
 export interface IAboutContentProps extends WithStyles<typeof styles> {
   className?: string;
@@ -39,7 +40,7 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
 
     return (
       <section className={classes.root}>
-        <LazyLoad height="15vh">
+        <LazyLoad height="15vh" placeholder={<img src={Placeholder} alt="Groepsfoto" />}>
           <img
             src="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
             title="groepsfoto"
