@@ -7,6 +7,7 @@ import Contact from "./components/contact/Contact";
 import { connect } from "react-redux";
 import { IAppState, IWebpage, initialState } from "./redux/initialState";
 import Showcase from "./components/showcase/Showcase";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 interface IAppProps extends WithStyles<typeof styles> {
   paginas?: IWebpage[];
@@ -19,6 +20,7 @@ const styles = (theme: Theme) =>
     },
     page: {
       width: "100%",
+      minHeight: "90vh",
       marginLeft: "auto",
       marginRight: "auto",
       margin: "5px"
@@ -77,7 +79,7 @@ class App extends Component<IAppProps, {}> {
     return (
       <div className={classes.root}>
         <Router>
-          <>
+          <ScrollToTop>
             <Route
               path={this._paginas[0].url}
               exact
@@ -98,7 +100,7 @@ class App extends Component<IAppProps, {}> {
               exact
               component={this._contact}
             />
-          </>
+          </ScrollToTop>
         </Router>
       </div>
     );

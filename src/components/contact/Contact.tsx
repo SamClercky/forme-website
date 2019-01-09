@@ -5,6 +5,7 @@ import Footer from "../common/Footer";
 import ContactEntryContainer from "./ContactEntryContainer";
 import Headline, { Text } from "../common/Headline";
 import { IWebpage } from "../../redux/initialState";
+import ScrollToTop from "../common/ScrollToTop";
 
 export interface IContactProps extends WithStyles<typeof styles> {
   className?: string;

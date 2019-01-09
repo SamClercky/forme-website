@@ -13,13 +13,25 @@ const styles = (theme: Theme) =>
 
 function NoStyleLinkComponent(props: any) {
   return (
-    <Link
-      to={props.to}
-      className={`${props.classes.root} ${props.className}`}
-      {...props}
-    >
-      {props.children}
-    </Link>
+    <>
+      {(props.normallink == true) ?
+      <a
+        href={props.to}
+        className={`${props.classes.root} ${props.className}`}
+        {...props}
+      >
+        {props.children}
+      </a>
+      :
+      <Link
+        to={props.to}
+        className={`${props.classes.root} ${props.className}`}
+        {...props}
+      >
+        {props.children}
+      </Link>
+      }
+    </>
   );
 }
 

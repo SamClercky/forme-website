@@ -17,6 +17,7 @@ import AboutContent from "../about/AboutContent";
 import { IWebpage } from "../../redux/initialState";
 import { Link } from "react-router-dom";
 import NoStyleLink from "../common/NoStyleLink";
+import ScrollToTop from "../common/ScrollToTop";
 
 interface IHomeProps extends WithStyles<typeof styles> {
   className?: string;

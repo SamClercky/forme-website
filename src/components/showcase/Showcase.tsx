@@ -4,8 +4,7 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  Paper,
-  Typography
+  Paper
 } from "@material-ui/core";
 import { IWebpage, IAppState, ICollectionItem } from "../../redux/initialState";
 import Header, { ILinkList } from "../common/Header";
@@ -13,6 +12,7 @@ import Footer from "../common/Footer";
 import { connect } from "react-redux";
 import ShowcaseItem from "./ShowcaseItem";
 import { Text } from "../common/Headline";
+import ScrollToTop from "../common/ScrollToTop";
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {
   className?: string;

@@ -75,22 +75,22 @@ class FooterComponentComponent extends React.Component<
               <Text variant="h6">Weblinks</Text>
               <ul>
                 <li>
-                  <Button color="inherit">
+                  <Button component="div" color="inherit">
                     <NoStyleLink to="/">Home</NoStyleLink>
                   </Button>
                 </li>
                 <li>
-                  <Button color="inherit">
+                  <Button component="div" color="inherit">
                     <NoStyleLink to="/showcase">Onze collectie</NoStyleLink>
                   </Button>
                 </li>
                 <li>
-                  <Button color="inherit">
+                  <Button component="div" color="inherit">
                     <NoStyleLink to="/over-ons">Over ons</NoStyleLink>
                   </Button>
                 </li>
                 <li>
-                  <Button color="inherit">
+                  <Button component="div" color="inherit">
                     <NoStyleLink to="/contact">Contacteer ons</NoStyleLink>
                   </Button>
                 </li>
@@ -100,8 +100,8 @@ class FooterComponentComponent extends React.Component<
               <Text variant="h6">Legaal</Text>
               <ul>
                 <li>
-                  <Button color="inherit">
-                    <NoStyleLink to="https://www.vlajo.org/">Vlajo</NoStyleLink>
+                  <Button component="div" color="inherit">
+                    <NoStyleLink normallink to="https://www.vlajo.org/">Vlajo</NoStyleLink>
                   </Button>
                 </li>
               </ul>

@@ -11,6 +11,7 @@ import Footer from "../common/Footer";
 import AboutContent from "./AboutContent";
 import { IWebpage } from "../../redux/initialState";
 import { Text } from "../common/Headline";
+import ScrollToTop from "../common/ScrollToTop";
 
 export interface IAboutProps extends WithStyles<typeof styles> {
   className?: string;
