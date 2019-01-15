@@ -28,7 +28,7 @@ const styles = (theme: Theme) =>
       display: "grid",
       gridTemplateColumns: "1fr 1fr 1fr",
       gridTemplateRows: "1fr",
-      gridTemplateAreas: "'image weblinks legal'",
+      gridTemplateAreas: "'image weblinks legal' 'image social .'",
       gridGap: "10px",
       width: "80vw",
       margin: "auto"
@@ -38,7 +38,7 @@ const styles = (theme: Theme) =>
         width: "100vw",
         gridTemplateColumns: "1fr",
         gridTemplateRows: "repeat(3, auto)",
-        gridTemplateAreas: "'weblinks' 'legal' 'image'"
+        gridTemplateAreas: "'weblinks' 'legal' 'image' 'social'"
       }
     },
     vlajoFoto: {
@@ -55,7 +55,12 @@ const styles = (theme: Theme) =>
       gridArea: "legal",
       marginLeft: "auto",
       marginRight: "auto",
-    }
+    },
+    socialSection: {
+      gridArea: "social",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
   });
 
 class FooterComponentComponent extends React.Component<
@@ -102,6 +107,16 @@ class FooterComponentComponent extends React.Component<
                 <li>
                   <Button component="div" color="inherit">
                     <NoStyleLink normallink="true" to="https://www.vlajo.org/">Vlajo</NoStyleLink>
+                  </Button>
+                </li>
+              </ul>
+            </div>
+            <div className={classes.socialSection}>
+              <Text variant="h6">Sociale media</Text>
+              <ul>
+                <li>
+                  <Button component="div" color="inherit">
+                    <NoStyleLink normallink="true" to="https://m.facebook.com/FormeCollege-980023255519496/">Facebook</NoStyleLink>
                   </Button>
                 </li>
               </ul>

@@ -4,8 +4,7 @@ import {
   createStyles,
   WithStyles,
   Theme,
-  Paper,
-  Typography
+  Paper
 } from "@material-ui/core";
 import logo from "../../logo_splashscreen.svg";
 import ShowcaseRow from "../showcase/ShowcaseRow";
@@ -15,9 +14,7 @@ import Footer from "../common/Footer";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";
 import AboutContent from "../about/AboutContent";
 import { IWebpage } from "../../redux/initialState";
-import { Link } from "react-router-dom";
 import NoStyleLink from "../common/NoStyleLink";
-import ScrollToTop from "../common/ScrollToTop";
 import Helmet from "react-helmet";
 
 interface IHomeProps extends WithStyles<typeof styles> {
@@ -115,11 +112,11 @@ class Home extends React.Component<IHomeProps, IHomeState> {
               <Text variant="h1" style={{ fontFamily: "'Bevan'" }}>
                 Forme
               </Text>
-              <Text variant="h3">Wij staan voor standvastigheid.</Text>
+              <Text variant="h3">T-shirts voor een duurzame samenleving.</Text>
             </div>
             <Headline variant="h2" align="left">
               <NoStyleLink to="/showcase">
-                Onze uitgelichte Producten
+                Onze uitgelichte producten
               </NoStyleLink>
             </Headline>
             <ShowcaseRow onlyHighlighted={true} />

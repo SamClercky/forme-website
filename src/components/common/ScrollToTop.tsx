@@ -7,7 +7,7 @@ export interface IScrollToTopProps extends RouteComponentProps<any> {
 
 class ScrollToTop extends React.Component<IScrollToTopProps, {}> {
   componentDidUpdate(prevProps: IScrollToTopProps) {
-    console.log("Updated!!!");
+    // console.log("Updated!!!");
     if (this.props.location !== prevProps.location) {
       window.scrollTo(0, 0);
     }

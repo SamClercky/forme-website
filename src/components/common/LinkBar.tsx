@@ -6,7 +6,6 @@ import {
   WithStyles,
   Theme
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import NoStyleLink from "./NoStyleLink";
 import { ILinkList } from "./Header";
 

@@ -12,7 +12,6 @@ import Footer from "../common/Footer";
 import { connect } from "react-redux";
 import ShowcaseItem from "./ShowcaseItem";
 import { Text } from "../common/Headline";
-import ScrollToTop from "../common/ScrollToTop";
 import Helmet from "react-helmet";
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {

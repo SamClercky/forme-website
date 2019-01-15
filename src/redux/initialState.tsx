@@ -149,17 +149,28 @@ export const initialState: IAppState = {
   ],
   contact: [
     {
-      name: "John Wick",
-      function: "Body guard",
-      description: "Ik zorg ervoor dat niemand gewond of vermoord wordt ;-)",
-      communication: [
-        {
-          label: "email",
-          adres: "safety@forme.be",
-          type: CommunicationType.email,
-          url: "safety@forme.be"
-        }
-      ]
+      name: "Ruslan Vernelen",
+      function: "CEO",
+      description: "Ik zorg ervoor dat iedereen het naar zijn zin heeft in dit bedrijf en dat alles goed verloopt.",
+      communication: []
+    },
+    {
+      name: "Ayshin Kyoseibish",
+      function: "Commercieel directeur",
+      description: "Mijn taak is dat alle het commerciële in orde is.",
+      communication: []
+    },
+    {
+      name: "Aliou Diallo",
+      function: "Financieel directeur",
+      description: "Ik los alle problemen op in verband met geld.",
+      communication: []
+    },
+    {
+      name: "Andreas Declerck",
+      function: "Technisch directeur",
+      description: "Ik ben de webmaster. Als er problemen zijn met de website, los ik die op.",
+      communication: []
     }
   ],
   vendorMoments: [
@@ -168,7 +179,7 @@ export const initialState: IAppState = {
       date: [new Date(2019, 0, 26)] // jaar, maand-1, dag
     },
     {
-      label: "Camping Flamingo",
+      label: "Camping Flamingo (nog niet bevestigd)",
       date: [
         new Date(2019, 1, 10),
         new Date(2019, 4, 12),

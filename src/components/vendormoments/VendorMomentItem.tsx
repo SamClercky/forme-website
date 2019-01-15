@@ -3,8 +3,7 @@ import {
   withStyles,
   createStyles,
   WithStyles,
-  Theme,
-  Typography
+  Theme
 } from "@material-ui/core";
 import { IVendorMoment } from "../../redux/initialState";
 import { Text } from "../common/Headline";

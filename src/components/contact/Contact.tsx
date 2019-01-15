@@ -12,7 +12,6 @@ import Footer from "../common/Footer";
 import ContactEntryContainer from "./ContactEntryContainer";
 import Headline, { Text } from "../common/Headline";
 import { IWebpage } from "../../redux/initialState";
-import ScrollToTop from "../common/ScrollToTop";
 import Helmet from "react-helmet";
 
 export interface IContactProps extends WithStyles<typeof styles> {
@@ -71,14 +70,14 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
           <Text variant="h1">Contacteer ons</Text>
           <Text paragraph>
             Wij staan altijd klaar voor onze klanten en willen daarom ook altijd
-            de beste service geven. Hiervoor kunt u altijd ons bereiken via
+            de beste service geven. Hiervoor kunt u ons altijd bereiken via
             ondestaande media.
           </Text>
           <Text paragraph>
             Voor algemene opmerkingen of vragen kunt u ons bereiken op{" "}
-            <a href="mailto:info@forme.be">info@forme.be</a>
+            <a href="mailto:info@forme-college.be">info@forme-college.be</a>
           </Text>
-          <Headline variant="h2">Contact met specifieke werknemers</Headline>
+          <Headline variant="h2">Contactgegevens van specifieke werknemers</Headline>
           <ContactEntryContainer />
         </Paper>
         <Footer />

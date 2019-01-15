@@ -12,7 +12,6 @@ import {
   withStyles,
   WithStyles
 } from "@material-ui/core";
-import { Mail } from "@material-ui/icons";
 import NoStyleLink from "./NoStyleLink";
 import { ILinkList } from "./Header";
 
@@ -46,7 +45,7 @@ class SideBarComponent extends React.Component<ISideBarProps> {
     const { classes, theme } = this.props;
     const list = this.props.linkList || ([] as ILinkList[]);
 
-    console.log(theme.breakpoints.up("sm"));
+    // console.log(theme.breakpoints.up("sm"));
 
     const drawer = (
       <div className={this.props.className}>

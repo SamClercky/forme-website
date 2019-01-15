@@ -18,6 +18,7 @@ function NoStyleLinkComponent(props: {normallink: boolean;} | any) {
       <a
         href={props.to}
         className={`${props.classes.root} ${props.className}`}
+        target="_blank"
         {...props}
       >
         {props.children}

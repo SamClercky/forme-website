@@ -81,6 +81,16 @@ class App extends Component<IAppProps, {}> {
         <Router>
           <ScrollToTop>
             <Route
+              path="/index.html"
+              exact
+              component={this._home}
+            />
+            <Route
+              path="/index"
+              exact
+              component={this._home}
+            />
+            <Route
               path={this._paginas[0].url}
               exact
               component={this._home}

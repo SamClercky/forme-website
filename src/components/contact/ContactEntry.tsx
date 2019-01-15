@@ -6,8 +6,7 @@ import {
   Theme,
   Paper,
   Grid,
-  Avatar,
-  Typography
+  Avatar
 } from "@material-ui/core";
 import LazyLoad from "react-lazyload";
 import { IContactInfo } from "../../redux/initialState";

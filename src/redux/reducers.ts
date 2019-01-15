@@ -42,11 +42,11 @@ const collection: Reducer<ICollectionItem[], AppActions> = (
       });
       break;
   }
-  console.log({
-    result: result,
-    state: state,
-    action: action
-  });
+  // console.log({
+  //   result: result,
+  //   state: state,
+  //   action: action
+  // });
   return result;
 };
 
