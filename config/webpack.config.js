@@ -23,7 +23,7 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-
+const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -495,6 +495,11 @@ module.exports = function(webpackEnv) {
             : undefined
         )
       ),
+      new DynamicCdnWebpackPlugin({
+        only: ['react', 'react-dom', 'react-router-dom'],
+        disable: false, // switch to true to disable
+        verbose: true, // switch to true to log which modules are being served from CDN
+      }),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
       isEnvProduction &&
