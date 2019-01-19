@@ -33,7 +33,7 @@ import {
   EmailIcon
 } from "react-share";
 import { Text } from "../common/Headline";
-import Placeholder from "../../placeholder.svg";
+import Placeholder from "../../placeholder.png";
 
 export enum CardSizes {
   big = "big",

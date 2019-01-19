@@ -1,4 +1,5 @@
-module.exports = {
+// @ts-ignore
+export default {
     staticFileGlobs: [
       '/*.html',
       '/*',

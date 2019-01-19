@@ -14,7 +14,7 @@ import LinkBar from "./LinkBar";
 import SideBar from "./SideBar";
 import { IWebpage } from "../../redux/initialState";
 import { Text } from "./Headline";
-import logo_wit from "../../logo_wit.svg";
+import logo_wit from "../../logo_wit.png";
 import NoStyleLink from "./NoStyleLink";
 
 export interface ILinkList extends IWebpage {

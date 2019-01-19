@@ -100,7 +100,7 @@ class VendorMomentItemComponent extends React.Component<
             <ul>
               {vendorMoment.date.map((d, i, array) => {
                 let result = d.toLocaleDateString();
-                return (<li key={result}>{result}</li>);
+                return (<li key={result}><Text>{result}</Text></li>);
               })}
             </ul>
           </Grid>

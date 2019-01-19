@@ -9,8 +9,8 @@ import {
 import Headline, { Text } from "../common/Headline";
 import ContactEntryContainer from "../contact/ContactEntryContainer";
 import LazyLoad from "react-lazyload";
-import Placeholder from "../../placeholder.svg"
-import SplashScreen from "../../logo_splashscreen.svg"
+import Placeholder from "../../placeholder.png"
+import SplashScreen from "../../splashscreen.png"
 import NoStyleLink from "../common/NoStyleLink";
 
 export interface IAboutContentProps extends WithStyles<typeof styles> {

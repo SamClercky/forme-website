@@ -6,7 +6,7 @@ import {
   Theme,
   Paper
 } from "@material-ui/core";
-import logo from "../../logo_splashscreen.svg";
+import logo from "../../splashscreen.png";
 import ShowcaseRow from "../showcase/ShowcaseRow";
 import Headline, { Text } from "../common/Headline";
 import Header, { ILinkList } from "../common/Header";
