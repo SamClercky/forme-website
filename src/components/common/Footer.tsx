@@ -38,8 +38,11 @@ const styles = (theme: Theme) =>
         width: "100vw",
         gridTemplateColumns: "1fr",
         gridTemplateRows: "repeat(3, auto)",
-        gridTemplateAreas: "'weblinks' 'legal' 'image' 'social'"
-      }
+        gridTemplateAreas: "'weblinks' 'legal' 'social' 'image'"
+      },
+      webLinksSection: { width: "30vw" },
+      legalSection: { width: "30vw" },
+      socialSection: { width: "30vw" }
     },
     vlajoFoto: {
       gridArea: "image",
@@ -66,16 +69,16 @@ const styles = (theme: Theme) =>
 class FooterComponentComponent extends React.Component<
   IFooterComponentProps,
   {}
-> {
+  > {
   public render() {
     const { classes } = this.props;
     return (
       <footer>
         <Paper className={classes.paper}>
           <div className={classes.gridLayout}>
-          <LazyLoad height={305}>
-            <img className={classes.vlajoFoto} src={vlajo} />
-          </LazyLoad>
+            <LazyLoad height={305}>
+              <img className={classes.vlajoFoto} src={vlajo} />
+            </LazyLoad>
             <div className={classes.webLinksSection}>
               <Text variant="h6">Weblinks</Text>
               <ul>
