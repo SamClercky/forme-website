@@ -13,6 +13,8 @@ import { connect } from "react-redux";
 import ShowcaseItem from "./ShowcaseItem";
 import { Text } from "../common/Headline";
 import Helmet from "react-helmet";
+import VendorMomentRow from "../vendormoments/VendorMomentRow";
+import HeadlineUnderline from '../common/Headline';
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {
   className?: string;
@@ -88,7 +90,10 @@ class ShowcaseComponent extends React.Component<
         </Helmet>
         <Header title="Onze collectie" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
-          <Text variant="h1">Onze collectie</Text>
+          <Text variant="h1">Welkom bij onze shop</Text>
+          <HeadlineUnderline variant="h2">Onze verkoopmomenten</HeadlineUnderline>
+          <VendorMomentRow />
+          <HeadlineUnderline variant="h2">Onze producten</HeadlineUnderline>
           <div className={classes.grid}>
             {collection.map(e => (
               <ShowcaseItem

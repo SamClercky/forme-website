@@ -5,6 +5,7 @@ const HeadlineUnderlineStyles = (theme: Theme) =>
     root: {
       borderBottom: `solid 1px ${theme.palette.secondary.contrastText}`,
       color: "inherit",
+      marginBottom: theme.spacing.unit,
     },
     h2: {
       fontSize: "2.5rem",
@@ -18,6 +19,7 @@ const TextStyle = (theme: Theme) =>
   createStyles({
     root: {
       color: "inherit",
+      margin: theme.spacing.unit,
     },
     h1: {
       fontSize: "4rem"

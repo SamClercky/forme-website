@@ -59,6 +59,8 @@ export interface IWebpage {
 export interface IVendorMoment {
   label: string;
   date: Date[];
+  description: string;
+  image?: string;
 }
 
 /**
@@ -186,16 +188,15 @@ export const initialState: IAppState = {
   vendorMoments: [
     {
       label: "Docks Bruxsel",
+      description: "",
       date: [new Date(2019, 0, 26)] // jaar, maand-1, dag
     },
     {
-      label: "Camping Flamingo (nog niet bevestigd)",
+      label: "Camping Flamingo",
+      description: "Nog niet bevestigd",
       date: [
         new Date(2019, 1, 10),
         new Date(2019, 4, 12),
-        new Date(2019, 4, 12),
-        new Date(2019, 4, 12),
-        new Date(2019, 4, 12)
       ] // jaar, maand-1, dag
     }
   ]
