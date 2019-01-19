@@ -86,7 +86,7 @@ class FooterComponentComponent extends React.Component<
                 </li>
                 <li>
                   <Button component="div" color="inherit">
-                    <NoStyleLink to="/showcase">Onze collectie</NoStyleLink>
+                    <NoStyleLink to="/store">Onze collectie</NoStyleLink>
                   </Button>
                 </li>
                 <li>

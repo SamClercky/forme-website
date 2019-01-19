@@ -20,6 +20,6 @@
     ]
   },
   "include": [
-    "src"
+    "src", "sw-precache-config.js"
   ]
 }

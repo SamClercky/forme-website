@@ -1,5 +1,5 @@
 import React from "react"
-import { Home, Store, Contacts, Face } from "@material-ui/icons";
+import { Home, Contacts, Face, ShoppingCart } from "@material-ui/icons";
 
 /**
  * Describes the way users can communicate with us
@@ -18,6 +18,7 @@ export interface IContactInfo {
   function: string;
   description: string;
   imageUrl?: string;
+  isImportant: boolean;
   communication: {
     label: string;
     type: CommunicationType;
@@ -52,6 +53,7 @@ export interface IWebpage {
   label: string;
   url: string;
   iconName: React.ReactElement<any>;
+  showMinimized: boolean;
 }
 
 export interface IVendorMoment {
@@ -129,22 +131,26 @@ export const initialState: IAppState = {
     {
       label: "Home",
       url: "/",
-      iconName: <Home />
+      iconName: <Home />,
+      showMinimized: true,
     },
     {
-      label: "Collectie",
-      url: "/showcase",
-      iconName: <Store />
+      label: "Onze producten",
+      url: "/store",
+      iconName: <ShoppingCart />,
+      showMinimized: true,
     },
     {
       label: "Over ons",
       url: "/over-ons",
-      iconName: <Face />
+      iconName: <Face />,
+      showMinimized: false,
     },
     {
       label: "Contact",
       url: "/contact",
-      iconName: <Contacts />
+      iconName: <Contacts />,
+      showMinimized: false,
     },
   ],
   contact: [
@@ -152,25 +158,29 @@ export const initialState: IAppState = {
       name: "Ruslan Vernelen",
       function: "CEO",
       description: "Ik zorg ervoor dat iedereen het naar zijn zin heeft in dit bedrijf en dat alles goed verloopt.",
-      communication: []
+      communication: [],
+      isImportant: true,
     },
     {
       name: "Ayshin Kyoseibish",
       function: "Commercieel directeur",
       description: "Mijn taak is dat alle het commerciële in orde is.",
-      communication: []
+      isImportant: false,
+      communication: [],
     },
     {
       name: "Aliou Diallo",
       function: "Financieel directeur",
       description: "Ik los alle problemen op in verband met geld.",
-      communication: []
+      isImportant: false,
+      communication: [],
     },
     {
       name: "Andreas Declerck",
       function: "Technisch directeur",
       description: "Ik ben de webmaster. Als er problemen zijn met de website, los ik die op.",
-      communication: []
+      isImportant: false,
+      communication: [],
     }
   ],
   vendorMoments: [

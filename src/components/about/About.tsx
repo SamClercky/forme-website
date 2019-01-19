@@ -70,7 +70,7 @@ class AboutComponent extends React.Component<IAboutProps, IAboutState> {
           <Text variant="h1" align="left">
             Over ons
           </Text>
-          <AboutContent />
+          <AboutContent shortVersion={false} />
         </Paper>
         <Footer />
       </>

@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 
 export interface IContactEntryContainerProps extends WithStyles<typeof styles> {
     className?: string,
-    contact?: IContactInfo[]
+    contact?: IContactInfo[],
+    shortVersion: boolean,
 }
 
 const styles = (theme: Theme) => createStyles({
@@ -22,11 +23,13 @@ class ContactEntryContainerComponent extends React.Component<IContactEntryContai
         return (
             <div className={this.props.classes.root + " " + (this.props.className || "")}>
                 {
-                    this.props.contact != undefined? this.props.contact.map(c => {
-                        return (
-                            <ContactEntry contact={c} key={c.name} />
-                        )
-                    }): null
+                    this.props.contact != undefined ? this.props.contact
+                        .filter(c => c.isImportant || !this.props.shortVersion)
+                        .map(c => {
+                            return (
+                                <ContactEntry contact={c} key={c.name} />
+                            )
+                        }) : null
                 }
             </div>
         )

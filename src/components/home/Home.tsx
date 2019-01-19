@@ -105,14 +105,14 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             <img
               src={logo}
               className={classes.splashscreen}
-              alt="Achtergrondafbeelding"
-              title="Achtergrondafbeelding voor de Home-page van het bedrijf Forme"
+              alt="Twee mieren als logo voor het bedrijf Forme"
+              title="Twee mieren als logo voor het bedrijf Forme op de Home-page"
             />
             <div className={classes.title}>
               <Text variant="h1" style={{ fontFamily: "'Bevan'" }}>
                 Forme
               </Text>
-              <Text variant="h3">T-shirts voor een duurzame samenleving.</Text>
+              <Text variant="h3">Wij verkopen duurzame T-shirts</Text>
             </div>
             <Headline variant="h2" align="left">
               <NoStyleLink to="/showcase">
@@ -127,7 +127,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
             <Headline variant="h2" align="left">
               <NoStyleLink to="/over-ons">Over ons</NoStyleLink>
             </Headline>
-            <AboutContent />
+            <AboutContent shortVersion={true} />
           </Paper>
         </main>
         <Footer />

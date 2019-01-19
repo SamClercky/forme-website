@@ -76,7 +76,7 @@ class ShowcaseComponent extends React.Component<
     return (
       <>
         <Helmet>
-          <title>Onze collectie</title>
+          <title>Onze producten</title>
           <meta
             name="description"
             content="Hier vinden jullie al onze producten"

@@ -145,9 +145,10 @@ class HeaderComponent extends React.Component<IHeaderProps, IHeaderState> {
 
               <img src={logo_wit} className={classes.grow} alt="Logo van het bedrijf Forme" title="Logo van het bedrijf Forme" />
 
-              {!this.state.isMobileRes ? ( // desktop only
+              {/* {!this.state.isMobileRes ? ( // desktop only
                 <LinkBar linkList={this.props.linkList} />
-              ) : null}
+              ) : null} */}
+              <LinkBar linkList={this.props.linkList} />
             </Toolbar>
           </AppBar>
         </header>

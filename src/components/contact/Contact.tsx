@@ -78,7 +78,7 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
             <a href="mailto:info@forme-college.be">info@forme-college.be</a>
           </Text>
           <Headline variant="h2">Contactgegevens van specifieke werknemers</Headline>
-          <ContactEntryContainer />
+          <ContactEntryContainer shortVersion={false} />
         </Paper>
         <Footer />
       </>
