@@ -166,7 +166,7 @@ export const initialState: IAppState = {
     {
       name: "Ayshin Kyoseibish",
       function: "Commercieel directeur",
-      description: "Mijn taak is dat alle het commerciële in orde is.",
+      description: "Mijn taak is dat al het commerciële in orde is.",
       isImportant: false,
       communication: [],
     },

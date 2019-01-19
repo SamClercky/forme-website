@@ -71,7 +71,7 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
             Elke dag zien we hoe de lokale economie het steeds meer moet opnemen
             tegen de grote multinationals die steeds weer de overhand nemen.
             Dat willen wij graag proberen te verhelpen door producten te verkopen, gemaakt
-            door lokale bedrijfjes. Dus is een t-shirt bij ons een grote hulp voor die kleine
+            door lokale bedrijfjes. Dus is een t-shirt bij ons is een grote hulp voor die kleine
             bedrijfjes.
         </Text>
           {
@@ -83,14 +83,14 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
           {
             (!this.props.shortVersion) ?
               <>
-                <Text variant="h6" component="q" className={classes.citaat}>Dus is een t-shirt bij ons een grote hulp voor die kleine
+                <Text variant="h6" component="q" className={classes.citaat}>Dus is een t-shirt bij ons is een grote hulp voor die kleine
           bedrijfjes.</Text>
                 <Text variant="body1" className={classes.text} paragraph>
                   Natuurlijk weten wij ook dat wij alleen nooit alle bedrijfjes kunnen helpen, maar we
                   willen meer een statement geven waar anderen een voorbeeld in kunnen zien.
                   Vandaar dat we ook de mier hebben als logo; als kleine mier alleen, ben je zwak
-                  en hulpeloos, maar als groep ben je sterker en weerbaarder. Samen kunnen - net als een
-          kolonie - voor een betere toekomst zorgen.<br /><br />
+                  en hulpeloos, maar als groep ben je sterker en weerbaarder. Samen kunnen we - net als een
+          kolonie - samenwerken en voor een betere toekomst zorgen.<br /><br />
                   Wij zijn een bedrijf opgestart door een hand vol leerlingen als een soort eindproject.
                   Velen in onze groep wouden een sociaal project organiseren en hebben er dan voor
                   gekozen om dit in deze vorm als lokale economie booster te doen.
