@@ -71,9 +71,17 @@ const vendorMoments: Reducer<IVendorMoment[], AppActions> = (
   return state; // nothing to change yet
 };
 
+const resources: Reducer<any, AppActions> = (
+  state = initialState.resources,
+  action
+) => {
+  return state; // nothing to change yet
+};
+
 export const globalReducer = combineReducers<IAppState, AppActions>({
   collection: collection,
   contact: contact,
   paginas: paginas,
-  vendorMoments: vendorMoments
+  vendorMoments: vendorMoments,
+  resources: resources,
 });

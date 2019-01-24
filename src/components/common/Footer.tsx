@@ -35,14 +35,18 @@ const styles = (theme: Theme) =>
     },
     [theme.breakpoints.down("md")]: {
       gridLayout: {
-        width: "100vw",
+        width: "max-content",
+        marginLeft: "auto",
+        marginRight: "auto",
         gridTemplateColumns: "1fr",
         gridTemplateRows: "repeat(3, auto)",
         gridTemplateAreas: "'weblinks' 'legal' 'social' 'image'"
       },
-      webLinksSection: { width: "30vw" },
-      legalSection: { width: "30vw" },
-      socialSection: { width: "30vw" }
+      webLinksSection: { width: "100%" },
+      legalSection: { width: "100%" },
+      socialSection: { width: "100%" }
+    },
+    [theme.breakpoints.down("sm")]: {
     },
     vlajoFoto: {
       gridArea: "image",
@@ -120,6 +124,11 @@ class FooterComponentComponent extends React.Component<
                 <li>
                   <Button component="div" color="inherit">
                     <NoStyleLink normallink="true" to="https://m.facebook.com/FormeCollege-980023255519496/">Facebook</NoStyleLink>
+                  </Button>
+                </li>
+                <li>
+                  <Button component="div" color="inherit">
+                    <NoStyleLink normallink="true" to="https://www.instagram.com/formevilvoorde/?utm_source=ig_profile_share&igshid=5sc0i5f8xjnd&fbclid=IwAR2gVBJQeZl8kKQX_9sJ_trnkhFSYF5vmf1Canly_mmHdW0Bg8kPqOtoBAk">Instagram</NoStyleLink>
                   </Button>
                 </li>
               </ul>

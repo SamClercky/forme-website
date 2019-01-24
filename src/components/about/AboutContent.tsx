@@ -10,7 +10,7 @@ import Headline, { Text } from "../common/Headline";
 import ContactEntryContainer from "../contact/ContactEntryContainer";
 import LazyLoad from "react-lazyload";
 import Placeholder from "../../placeholder.png"
-import SplashScreen from "../../splashscreen.png"
+import { initialState } from '../../redux/initialState';
 import NoStyleLink from "../common/NoStyleLink";
 
 export interface IAboutContentProps extends WithStyles<typeof styles> {
@@ -31,6 +31,7 @@ const styles = (theme: Theme) =>
       maxWidth: "100%",
       width: "default",
       maxHeight: "40vh",
+      objectFit: "cover",
     },
     text: {
       // textAlign: "justify"
@@ -41,6 +42,9 @@ const styles = (theme: Theme) =>
         "& > *": {
           marginLeft: "10px",
         },
+      },
+      groepsfoto: {
+        minWidth: "30vw",
       },
     },
     citaat: {
@@ -58,9 +62,9 @@ class AboutContentComponent extends React.Component<IAboutContentProps, {}> {
       <section className={classes.root + " " + ((this.props.shortVersion) ? classes.smallRoot : "")}>
         <LazyLoad height="15vh" placeholder={<img src={Placeholder} alt="Onze groepsfoto" />}>
           <img
-            src={SplashScreen}
-            title="Onze groepsfoto"
-            alt="Onze groepsfoto"
+            src={initialState.resources.groepsfoto.url}
+            title={initialState.resources.groepsfoto.title}
+            alt={initialState.resources.groepsfoto.alt}
             className={classes.groepsfoto}
           />
         </LazyLoad>
