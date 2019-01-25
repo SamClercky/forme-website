@@ -15,7 +15,6 @@ import { Text } from "../common/Headline";
 import Helmet from "react-helmet";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";
 import HeadlineUnderline from '../common/Headline';
-import { RouteProps } from 'react-router-dom';
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {
   className?: string;

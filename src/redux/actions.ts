@@ -1,5 +1,4 @@
 import { Action } from "redux";
-import { url } from "inspector";
 
 // actionstatements
 export const ADD_FAVORITE = "add_favorite";
