@@ -138,9 +138,9 @@ export const initialState: IAppState = {
     //   price: 0,
     // }
     {
-      label: "Wit t-shirt met patience in het Arabisch (zwart)",
+      label: "Wit t-shirt met 'Patience' in het Arabisch (zwart)",
       url: "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_arabischZwart.png?raw=true",
-      description: "Onze exclusieve eerste t-shirt van eigen makelij met patience in het Arabisch",
+      description: "Onze exclusieve eerste t-shirt van eigen makelij met 'Patience' in het Arabisch",
       stared: false,
       stars: 0,
       highlighted: true,
@@ -175,7 +175,7 @@ export const initialState: IAppState = {
   ],
   contact: [
     {
-      name: "Ruslan Vernelen",
+      name: "Ranja Hajji",
       function: "CEO",
       description: "Ik zorg ervoor dat iedereen het naar zijn zin heeft in dit bedrijf en dat alles goed verloopt.",
       communication: [],
