@@ -104,7 +104,7 @@ export default class InitFirebase {
       this.DbConnection.ref("/collection/" + index)
         .transaction((post: IFirebaseStarDb) => {
           if (post) {
-            console.log(post);
+            // console.log(post);
             if (isAdded) {
               post.stars += 1;
             } else {
@@ -112,7 +112,7 @@ export default class InitFirebase {
             }
           }
           return post
-        }, (error) => console.error(error))
+        }, (error) => {return;})
     }
   }
 

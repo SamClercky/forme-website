@@ -66,11 +66,13 @@ class App extends Component<IAppProps, {}> {
       paginas={this._paginas}
     />
   );
-  _showcase = () => (
+  // @ts-ignore
+  _showcase = (props: any) => (
     <Showcase
       className={this.props.classes.page}
       linkList={this._paginas}
       paginas={this._paginas}
+      id={props.match.params.id}
     />
   );
 
@@ -96,8 +98,11 @@ class App extends Component<IAppProps, {}> {
               component={this._home}
             />
             <Route
+              path={this._paginas[1].url + "/:id"}
+              component={this._showcase}
+            />
+            <Route
               path={this._paginas[1].url}
-              exact
               component={this._showcase}
             />
             <Route

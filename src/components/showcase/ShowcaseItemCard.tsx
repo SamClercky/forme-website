@@ -205,47 +205,47 @@ class ShowcaseItemCardComponent extends React.Component<
               >
                 <Favorite />
               </IconButton>
-              <Text style={{ display: "inline" }} variant="display1" paragraph>
+              <Text style={{ display: "inline" }} paragraph>
                 {this.props.starCount}
               </Text>
             </div>
             <IconButton onClick={this.onShareToggle}>
               <Share />
             </IconButton>
-            <Text variant="display1" className={classes.priceTag} paragraph>
+            <Text className={classes.priceTag} paragraph>
               € {this.props.cardPrice}
             </Text>
           </CardActions>
           <Collapse in={this.state.open} timeout="auto" unmountOnExit>
             <CardContent className={classes.socialCollapse}>
               <FacebookShareButton
-                url={this.props.cardUrl}
+                url={"https://www.forme-college.be/store/" + encodeURI(this.props.cardLabel)}
                 quote={"Check dit eens uit: " + this.props.cardLabel}
               >
                 <FacebookIcon round size={32} />
               </FacebookShareButton>
               <LinkedinShareButton
-                url={this.props.cardUrl}
+                url={"https://www.forme-college.be/store/" + encodeURI(this.props.cardLabel)}
                 description={this.props.cardDescription}
                 title={"Check dit eens uit: " + this.props.cardLabel}
               >
                 <LinkedinIcon round size={32} />
               </LinkedinShareButton>
               <TwitterShareButton
-                url={this.props.cardUrl}
+                url={"https://www.forme-college.be/store/" + encodeURI(this.props.cardLabel)}
                 title={"Check dit eens uit: " + this.props.cardLabel}
               >
                 <TwitterIcon round size={32} />
               </TwitterShareButton>
               <WhatsappShareButton
-                url={this.props.cardUrl}
+                url={"https://www.forme-college.be/store/" + encodeURI(this.props.cardLabel)}
                 title={"Check dit eens uit: " + this.props.cardLabel}
               >
                 <WhatsappIcon round size={32} />
               </WhatsappShareButton>
               {/* <PinterestShareButton url={this.props.sharableUrl} /> */}
               <EmailShareButton
-                url={this.props.cardUrl}
+                url={"https://www.forme-college.be/store/" + encodeURI(this.props.cardLabel)}
                 body={"Check dit eens uit: " + this.props.cardLabel}
               >
                 <EmailIcon round size={32} />

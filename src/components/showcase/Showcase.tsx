@@ -15,6 +15,7 @@ import { Text } from "../common/Headline";
 import Helmet from "react-helmet";
 import VendorMomentRow from "../vendormoments/VendorMomentRow";
 import HeadlineUnderline from '../common/Headline';
+import { RouteProps } from 'react-router-dom';
 
 export interface IShowcaseProps extends WithStyles<typeof styles> {
   className?: string;
@@ -24,6 +25,7 @@ export interface IShowcaseProps extends WithStyles<typeof styles> {
   }[];
   paginas: IWebpage[];
   collection?: ICollectionItem[];
+  id?: string
 }
 
 const styles = (theme: Theme) =>
@@ -56,7 +58,7 @@ interface IShowcaseState {
 class ShowcaseComponent extends React.Component<
   IShowcaseProps,
   IShowcaseState
-> {
+  > {
   public constructor(props: IShowcaseProps) {
     super(props);
 
@@ -95,16 +97,20 @@ class ShowcaseComponent extends React.Component<
           <VendorMomentRow />
           <HeadlineUnderline variant="h2">Onze producten</HeadlineUnderline>
           <div className={classes.grid}>
-            {collection.map(e => (
-              <ShowcaseItem
-                key={e.url}
-                itemLabel={e.label}
-                itemDescription={e.description}
-                itemUrl={e.url}
-                itemPrice={e.price}
-                className={classes.gridItem}
-              />
-            ))}
+            {collection.map(e => {
+              const isOpen = decodeURI((this.props.id)?this.props.id:"") == e.label
+              return (
+                <ShowcaseItem
+                  key={e.url}
+                  itemLabel={e.label}
+                  itemDescription={e.description}
+                  itemUrl={e.url}
+                  itemPrice={e.price}
+                  className={classes.gridItem}
+                  startOpen={isOpen}
+                />
+              )
+            })}
           </div>
         </Paper>
         <Footer />
