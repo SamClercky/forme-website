@@ -62,7 +62,7 @@ export default class InitFirebase {
       .then((snapshot) => {
         const values = snapshot.val() as IFirebaseStarDb[];
         this.latestSnapshot = values;
-        console.log(values);
+        // console.log(values);
         // udpate store to fit data
         if (values != null) {
           store.dispatch(

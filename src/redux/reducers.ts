@@ -45,6 +45,7 @@ const collection: Reducer<ICollectionItem[], AppActions> = (
       result = result.map(e => {
         for (let i = 0; i < action.data.length; i++) {
           if (e.url == action.data[i].url) {
+            // console.log("Url found :-)")
             e.stars = action.data[i].stars;
             break;
           }
