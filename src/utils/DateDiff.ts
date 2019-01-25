@@ -27,5 +27,17 @@ export const DateDiff = {
  
     inYears: function(d1: Date, d2: Date) {
         return d2.getFullYear()-d1.getFullYear();
-    }
+    },
+
+    inSeconds: function(d1: Date, d2: Date) {
+        return d2.getSeconds() - d1.getSeconds();
+    },
+
+    inMinutes: function(d1: Date, d2: Date) {
+        return d2.getMinutes() - d1.getMinutes();
+    },
+
+    inHours: function(d1: Date, d2: Date) {
+        return d2.getHours() - d1.getHours();
+    },
 }

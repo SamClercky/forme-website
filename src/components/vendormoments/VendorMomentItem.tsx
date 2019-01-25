@@ -35,7 +35,7 @@ const styles = (theme: Theme) => createStyles({
 
 interface IVendorMomentItemState {
   showCountDown: boolean,
-  interval: any, // setInterval return type
+  interval: NodeJS.Timeout | undefined, // setInterval return type
   newTime: Date,
 }
 
@@ -55,7 +55,7 @@ class VendorMomentItemComponent extends React.Component<
 
     this.getImage = this.getImage.bind(this);
     this.getInitials = this.getInitials.bind(this);
-    this.onNewSecond = this.onNewSecond.bind(this);
+    // this.onNewSecond = this.onNewSecond.bind(this);
   }
 
   componentWillMount() {
@@ -64,26 +64,26 @@ class VendorMomentItemComponent extends React.Component<
     // console.log(weeksToGo);
 
     if (weeksToGo < 1 && weeksToGo >= 0) {
-      const interval: NodeJS.Timeout = setInterval(this.onNewSecond, 1000);
+      // const interval: NodeJS.Timeout = setInterval(this.onNewSecond, 1000);
       this.setState({
         showCountDown: true,
         newTime: now,
-        interval: interval
+        // interval: interval
       })
     }
   }
 
-  componentWillUnmount() {
-    if (this.state.interval != undefined) {
-      this.state.interval.clearInterval();
-    }
-  }
+  // componentWillUnmount() {
+  //   if (this.state.interval != undefined) {
+  //     clearInterval(this.state.interval);
+  //   }
+  // }
 
-  onNewSecond() {
-    this.setState({
-      newTime: new Date(Date.now())
-    })
-  }
+  // onNewSecond() {
+  //   this.setState({
+  //     newTime: new Date(Date.now())
+  //   })
+  // }
 
   private getInitials(name: string): string {
     return name
@@ -112,17 +112,31 @@ class VendorMomentItemComponent extends React.Component<
 
   countDownMessage(date: Date) {
     let result = "Nog ";
+    const nu = new Date(Date.now());
+    const refTime = new Date();
+    refTime.setHours(24, 60, 60, 1000);
     const aantalDagen = DateDiff.inDays(
-      new Date(Date.now()),
+      nu,
       date);
+    // const aantalUur = DateDiff.inHours(
+    //   refTime, nu
+    // );
+    // const aantalMinuten = DateDiff.inMinutes(
+    //   refTime, nu
+    // );
+    // const aantalSeconten = DateDiff.inSeconds(
+    //   refTime, nu
+    // );
 
     result += aantalDagen;
 
     if (aantalDagen == 1) {
-      result += " dag "
+      result += " dag, "
     } else {
-      result += " dagen "
+      result += " dagen, "
     }
+
+    // result += `${aantalUur}u ${aantalMinuten}min ${aantalSeconten}s `
 
     result += "wachten ...";
 

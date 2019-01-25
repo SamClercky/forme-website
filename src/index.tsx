@@ -11,7 +11,8 @@ import { grey, red } from "@material-ui/core/colors";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import register from "./serviceWorker";
-// import InitFirebase from "./firestore/InitFirebase";
+import InitFirebase from "./firestore/InitFirebase";
+// import InitFirebase from './firestore/InitFirebase';
 
 // create theme
 const theme = createMuiTheme({
@@ -41,8 +42,8 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-// const f = new InitFirebase();
-// f.getAll();
+const f = new InitFirebase();
+// console.log(f.getAll());
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

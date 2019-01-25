@@ -41,6 +41,17 @@ const collection: Reducer<ICollectionItem[], AppActions> = (
         }
       });
       break;
+    case "get_collection_stars":
+      result = result.map(e => {
+        for (let i = 0; i < action.data.length; i++) {
+          if (e.url == action.data[i].url) {
+            e.stars = action.data[i].stars;
+            break;
+          }
+        }
+        return e;
+      })
+      break;
   }
   // console.log({
   //   result: result,
