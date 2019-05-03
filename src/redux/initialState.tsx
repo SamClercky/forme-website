@@ -63,6 +63,12 @@ export interface IVendorMoment {
   image?: string;
 }
 
+export interface IResources {
+  url: string,
+  alt: string,
+  title: string,
+}
+
 /**
  * Describes the general data format
  */
@@ -71,62 +77,74 @@ export interface IAppState {
   paginas: IWebpage[];
   contact: IContactInfo[];
   vendorMoments: IVendorMoment[];
+  resources: {
+    groepsfoto: IResources
+  }
 }
 
 export const initialState: IAppState = {
   collection: [
+    // {
+    //   label: "T-shirt rood",
+    //   url:
+    //     "https://github.com/SamClercky/forme-src/blob/master/tshirtRood.png?raw=true",
+    //   description:
+    //     "Dit is een rood t-shirt gemaakt met verfijnde stof en een exclusieve witte mier op de borst.",
+    //   stars: 0,
+    //   stared: false,
+    //   highlighted: false,
+    //   price: 20,
+    // },
+    // {
+    //   label: "T-shirt wit mier zwart (groot)",
+    //   url:
+    //     "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_donker.png?raw=true",
+    //   description:
+    //     "Wit t-shirt met een exclusieve zwarte mier en onze bedrijfsnaam in het Arabisch.",
+    //   stars: 0,
+    //   stared: false,
+    //   highlighted: false,
+    //   price: 0,
+    // },
+    // {
+    //   label: "T-shirt wit mier rood (groot)",
+    //   url:
+    //     "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish.png?raw=true",
+    //   description:
+    //     "Rood t-shirt met een exclusieve rode mier en onze bedrijfsnaam in het Arabisch.",
+    //   stars: 0,
+    //   stared: false,
+    //   highlighted: false,
+    //   price: 0,
+    // },
+    // {
+    //   label: "T-shirt wit mier rood (klein)",
+    //   url:
+    //     "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_klein.png?raw=true",
+    //   description: "Sober wit t-shirt voor sportevenmenten.",
+    //   stars: 0,
+    //   stared: false,
+    //   highlighted: true,
+    //   price: 0,
+    // },
+    // {
+    //   label: "T-shirt wit lopende mieren",
+    //   url:
+    //     "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_v6.png?raw=true",
+    //   description: "Deluxe wit t-shirt met lopende mieren op borst en rug.",
+    //   stars: 0,
+    //   stared: false,
+    //   highlighted: true,
+    //   price: 0,
+    // },
     {
-      label: "T-shirt rood",
-      url:
-        "https://github.com/SamClercky/forme-src/blob/master/tshirtRood.png?raw=true",
-      description:
-        "Dit is een rood t-shirt gemaakt met verfijnde stof en een exclusieve witte mier op de borst.",
-      stars: 0,
+      label: "Wit t-shirt met 'Patience' in het Arabisch (zwart)",
+      url: "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_arabischZwart.png?raw=true",
+      description: "Onze exclusieve eerste t-shirt van eigen makelij met 'Patience' in het Arabisch",
       stared: false,
-      highlighted: false,
-      price: 20,
-    },
-    {
-      label: "T-shirt wit mier zwart (groot)",
-      url:
-        "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_donker.png?raw=true",
-      description:
-        "Wit t-shirt met een exclusieve zwarte mier en onze bedrijfsnaam in het Arabisch.",
       stars: 0,
-      stared: false,
-      highlighted: false,
-      price: 0,
-    },
-    {
-      label: "T-shirt wit mier rood (groot)",
-      url:
-        "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish.png?raw=true",
-      description:
-        "Rood t-shirt met een exclusieve rode mier en onze bedrijfsnaam in het Arabisch.",
-      stars: 0,
-      stared: false,
-      highlighted: false,
-      price: 0,
-    },
-    {
-      label: "T-shirt wit mier rood (klein)",
-      url:
-        "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_klein.png?raw=true",
-      description: "Sober wit t-shirt voor sportevenmenten.",
-      stars: 0,
-      stared: false,
       highlighted: true,
-      price: 0,
-    },
-    {
-      label: "T-shirt wit lopende mieren",
-      url:
-        "https://github.com/SamClercky/forme-src/blob/master/tshirtWit_finish_v6.png?raw=true",
-      description: "Deluxe wit t-shirt met lopende mieren op borst en rug.",
-      stars: 0,
-      stared: false,
-      highlighted: true,
-      price: 0,
+      price: 9.99
     }
   ],
   paginas: [
@@ -157,7 +175,7 @@ export const initialState: IAppState = {
   ],
   contact: [
     {
-      name: "Ruslan Vernelen",
+      name: "Ranja Hajji",
       function: "CEO",
       description: "Ik zorg ervoor dat iedereen het naar zijn zin heeft in dit bedrijf en dat alles goed verloopt.",
       communication: [],
@@ -207,5 +225,12 @@ export const initialState: IAppState = {
         new Date(2019, 4, 4)
       ]
     }
-  ]
+  ],
+  resources: {
+    groepsfoto: {
+      url: "https://github.com/SamClercky/forme-src/blob/master/groepsfoto.jpg?raw=true",
+      alt: "Groepsfoto van alle medewerkers bij Forme",
+      title: "Groepsfoto van alle medewerkers bij Forme",
+    }
+  }
 };

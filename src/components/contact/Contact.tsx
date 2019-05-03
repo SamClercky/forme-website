@@ -65,7 +65,7 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
             content="forme, tshirts, t-shirts, vlajo, contact, problemen"
           />
         </Helmet>
-        <Header title="Contacteer ons" linkList={this.state.linkList} />
+        <Header title="Contact" linkList={this.state.linkList} />
         <Paper className={this.props.className + " " + classes.root}>
           <Text variant="h1">Contacteer ons</Text>
           <Text paragraph>
@@ -77,7 +77,7 @@ class ContactComponent extends React.Component<IContactProps, IContactState> {
             Voor algemene opmerkingen of vragen kunt u ons bereiken op{" "}
             <a href="mailto:info@forme-college.be">info@forme-college.be</a>
           </Text>
-          <Headline variant="h2">Contactgegevens van specifieke werknemers</Headline>
+          <Headline variant="h2">Namen en functies van specifieke werknemers</Headline>
           <ContactEntryContainer shortVersion={false} />
         </Paper>
         <Footer />

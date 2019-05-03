@@ -41,6 +41,18 @@ const collection: Reducer<ICollectionItem[], AppActions> = (
         }
       });
       break;
+    case "get_collection_stars":
+      result = result.map(e => {
+        for (let i = 0; i < action.data.length; i++) {
+          if (e.url == action.data[i].url) {
+            // console.log("Url found :-)")
+            e.stars = action.data[i].stars;
+            break;
+          }
+        }
+        return e;
+      })
+      break;
   }
   // console.log({
   //   result: result,
@@ -71,9 +83,17 @@ const vendorMoments: Reducer<IVendorMoment[], AppActions> = (
   return state; // nothing to change yet
 };
 
+const resources: Reducer<any, AppActions> = (
+  state = initialState.resources,
+  action
+) => {
+  return state; // nothing to change yet
+};
+
 export const globalReducer = combineReducers<IAppState, AppActions>({
   collection: collection,
   contact: contact,
   paginas: paginas,
-  vendorMoments: vendorMoments
+  vendorMoments: vendorMoments,
+  resources: resources,
 });
