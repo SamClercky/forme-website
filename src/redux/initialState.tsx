@@ -186,7 +186,7 @@ export const initialState: IAppState = {
     }
   ],
   vendorMoments: [
-    {
+    /*{
       label: "Docks Bruxsel",
       description: "",
       date: [new Date(2019, 0, 26)] // jaar, maand-1, dag
@@ -198,6 +198,14 @@ export const initialState: IAppState = {
         new Date(2019, 1, 10),
         new Date(2019, 4, 12),
       ] // jaar, maand-1, dag
+    }*/
+    {
+      label: "Het College",
+      description: "Aan de ingang van de school tijdens het JES-weekend",
+      date: [
+        new Date(2019, 4, 3),
+        new Date(2019, 4, 4)
+      ]
     }
   ]
 };
